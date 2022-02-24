@@ -9,8 +9,8 @@ import SwiftUI
 
 struct SwipeableCardView: View {
 
-    private let nope = "NOPE"
-    private let like = "LIKE"
+    private let nope = "BAD"
+    private let like = "GREAT"
     private let screenWidthLimit = UIScreen.main.bounds.width * 0.5
     
     let model: UserProfile
