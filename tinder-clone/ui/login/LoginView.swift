@@ -26,7 +26,7 @@ struct LoginView: View {
                     Image("icons8-google-48")
                         .resizable()
                         .frame(width: 24, height: 24)
-                    Text("Sign In with Your Mom")
+                    Text("Sign In with Your Penis")
                         .foregroundColor(.gray)
                 }
                 .padding(.top, 10)
