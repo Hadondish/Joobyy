@@ -10,12 +10,12 @@
 "submit" = "Submit";
 "personal-info" = "Personal information";
 "about-you" = "About you";
-"gender" = "Gender";
+"gender" = "Profile Type";
 "name" = "Name";
 "birthdate" = "Birthdate";
 "enter-your-name" = "Enter your name";
 "pick-your-birthday" = "Pick your birthdate";
-"i-am-interested-in" = "I am interested in";
+"i-am-interested-in" = "I am looking for a";
 "man" = "Recruiter";
 "woman" = "Candidate";
 "men" = "Recruiter";

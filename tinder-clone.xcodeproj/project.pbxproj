@@ -66,6 +66,7 @@
 		4FEB427A278DA96D004B06AF /* TinderCloneCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FEB4278278DA96D004B06AF /* TinderCloneCoreData.xcdatamodeld */; };
 		4FEB427C278DAD97004B06AF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEB427B278DAD97004B06AF /* Persistence.swift */; };
 		5C326ADC27C7934F001CA626 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C326ADB27C7934F001CA626 /* GoogleService-Info.plist */; };
+		65EB636427C8C3E700D9B466 /* Prescreening Questions -> Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65EB636327C8C3E700D9B466 /* Prescreening Questions -> Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +146,7 @@
 		4FEB4279278DA96D004B06AF /* TinderCloneCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TinderCloneCoreData.xcdatamodel; sourceTree = "<group>"; };
 		4FEB427B278DAD97004B06AF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		5C326ADB27C7934F001CA626 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		65EB636327C8C3E700D9B466 /* Prescreening Questions -> Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Prescreening Questions -> Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +275,7 @@
 				4FEB4270278D9FA7004B06AF /* common */,
 				4FEB426F278D9F91004B06AF /* home */,
 				4FEB426E278D9F6F004B06AF /* login */,
+				65EB636327C8C3E700D9B466 /* Prescreening Questions -> Launch Screen.storyboard */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 			files = (
 				4F0899412780939B00A3BE95 /* Preview Assets.xcassets in Resources */,
 				5C326ADC27C7934F001CA626 /* GoogleService-Info.plist in Resources */,
+				65EB636427C8C3E700D9B466 /* Prescreening Questions -> Launch Screen.storyboard in Resources */,
 				4FBBA11B27977419003BC15D /* Localizable.strings in Resources */,
 				4F08993E2780939B00A3BE95 /* Assets.xcassets in Resources */,
 			);

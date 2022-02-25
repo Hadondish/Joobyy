@@ -11,6 +11,9 @@ import UniformTypeIdentifiers
 struct CreateProfileView: View {
     @State private var userName: String = ""
     @State private var userBio: String = ""
+    @State private var desiredPosition: String = ""
+    @State private var myerType: String = ""
+
     @State private var datePickerSelection: Date = Date()
     @State private var genderSelection: String = ""
     @State private var orientationSelection: Orientation? = nil
@@ -52,6 +55,15 @@ struct CreateProfileView: View {
                     ProfileRow{
                         DatePicker(selection: $datePickerSelection, in: partialRange, displayedComponents: .date, label: {Text("pick-your-birthday")})
                     }
+                    //Desired Position
+                    ProfileRow {
+                        TextField("Enter Desired Job Position", text: $desiredPosition)
+                    }
+                    //Myer Briggs
+                    ProfileSection("Myer Briggs Type") {
+                        TextField("   Enter your Myer briggs type ", text: $myerType)
+                    }
+                   
                 }
                 
                 ProfileSection("about-you"){

@@ -40,3 +40,18 @@ struct MatchView_Previews: PreviewProvider {
         MatchView(matchName: "Elon", matchImage: UIImage(named: "elon_musk")!, onSendMessageButtonClicked: {}, onKeepSwipingClicked: {})
     }
 }
+
+//Personality Matches
+
+//introversion/extraversion(antisocial)
+
+//sensing/intuition,
+
+//thinking/feeling,
+
+//judging/perceiving
+
+
+
+
+
