@@ -1,9 +1,7 @@
 //
 //  FirebaseMatch.swift
 //  tinder-clone
-//
-//  Created by Alejandro Piguave on 23/1/22.
-//
+
 
 import Foundation
 

@@ -1,110 +1,26 @@
 //
-//  ContentView.swift
+//  SwiftUIView.swift
 //  tinder-clone
-
-
-
-
-
-/*
-struct Home: View {
-    @State private var authState: AuthState? = .loading
-    @EnvironmentObject var loginViewModel: AuthViewModel
-    
-    @ViewBuilder
-    func contentBuilder() -> some View {
-        switch(loginViewModel.authState){
-        case .loading:
-            LoadingView()
-        case .logged:
-            HomeView()
-        case .unlogged:
-            LoginView()
-        case .pendingInformation:
-            CreateProfileView()
-        }
-    }
-    
-    var body: some View {
-        contentBuilder()
-            .onAppear(perform: {
-                loginViewModel.updateAuthState()
-            })
-    }
-}
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-*/
-
+//
+//  Created by Kevin Tran on 2/26/22.
+//
 
 import SwiftUI
 
-struct ContentView: View {
-    @AppStorage("currentPage") var currentPage = 1
+struct SwiftUIView: View {
     var body: some View {
-     
-        if currentPage > totalPages{
-            Home()
-        }
-        else{
-            WalkthroughScreen()
-        }
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        SwiftUIView()
     }
 }
 
-// little Home Page....
-/*  struct Home: View {
-    
-    var body: some View{
-        
-        Text("Welcome To Home !!!")
-            .font(.title)
-            .fontWeight(.heavy)
-    }
-}
-*/
- 
-//home Page
 
-struct Home: View {
-    @State private var authState: AuthState? = .loading
-    @EnvironmentObject var loginViewModel: AuthViewModel
-    
-    @ViewBuilder
-    func contentBuilder() -> some View {
-        switch(loginViewModel.authState){
-        case .loading:
-            LoadingView()
-        case .logged:
-            HomeView()
-        case .unlogged:
-            LoginView()
-        case .pendingInformation:
-            CreateProfileView()
-        }
-    }
-    
-    var body: some View {
-        contentBuilder()
-            .onAppear(perform: {
-                loginViewModel.updateAuthState()
-            })
-    }
-}
- 
-
-// WalkThrough SCreen....
+//Prescreening Questions
 
 struct WalkthroughScreen: View {
     
@@ -195,7 +111,7 @@ struct ScreenView: View {
                 
                 // Showing it only for first Page...
                 if currentPage == 1{
-                    Text("Hello Member!")
+                    Text("Hello Candidate!")
                         .font(.title)
                         .fontWeight(.semibold)
                         // Letter Spacing...
@@ -246,7 +162,7 @@ struct ScreenView: View {
                 .padding(.top)
             
             // Change with your Own Thing....
-            Text("Lorem ipsum is dummy text used in laying out print, graphic or web designs.")
+            Text("How would you treat your coworkers?")
                 .fontWeight(.semibold)
                 .kerning(1.3)
                 .multilineTextAlignment(.center)
@@ -260,8 +176,4 @@ struct ScreenView: View {
 }
 
 // total Pages...
-var totalPages = 3
-
-
-
-
+var totalPages = 5

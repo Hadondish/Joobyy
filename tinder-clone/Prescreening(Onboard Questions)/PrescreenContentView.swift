@@ -1,46 +1,6 @@
 //
 //  ContentView.swift
-//  tinder-clone
-
-
-
-
-
-/*
-struct Home: View {
-    @State private var authState: AuthState? = .loading
-    @EnvironmentObject var loginViewModel: AuthViewModel
-    
-    @ViewBuilder
-    func contentBuilder() -> some View {
-        switch(loginViewModel.authState){
-        case .loading:
-            LoadingView()
-        case .logged:
-            HomeView()
-        case .unlogged:
-            LoginView()
-        case .pendingInformation:
-            CreateProfileView()
-        }
-    }
-    
-    var body: some View {
-        contentBuilder()
-            .onAppear(perform: {
-                loginViewModel.updateAuthState()
-            })
-    }
-}
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-*/
-
+//  Shared Questions
 
 import SwiftUI
 
@@ -63,46 +23,16 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-// little Home Page....
-/*  struct Home: View {
+// Home Page....
+struct Home: View {
     
     var body: some View{
         
-        Text("Welcome To Home !!!")
+        Text("sweet home screen")
             .font(.title)
             .fontWeight(.heavy)
     }
 }
-*/
- 
-//home Page
-
-struct Home: View {
-    @State private var authState: AuthState? = .loading
-    @EnvironmentObject var loginViewModel: AuthViewModel
-    
-    @ViewBuilder
-    func contentBuilder() -> some View {
-        switch(loginViewModel.authState){
-        case .loading:
-            LoadingView()
-        case .logged:
-            HomeView()
-        case .unlogged:
-            LoginView()
-        case .pendingInformation:
-            CreateProfileView()
-        }
-    }
-    
-    var body: some View {
-        contentBuilder()
-            .onAppear(perform: {
-                loginViewModel.updateAuthState()
-            })
-    }
-}
- 
 
 // WalkThrough SCreen....
 
@@ -195,7 +125,7 @@ struct ScreenView: View {
                 
                 // Showing it only for first Page...
                 if currentPage == 1{
-                    Text("Hello Member!")
+                    Text("Hello Candidate!")
                         .font(.title)
                         .fontWeight(.semibold)
                         // Letter Spacing...
@@ -246,7 +176,7 @@ struct ScreenView: View {
                 .padding(.top)
             
             // Change with your Own Thing....
-            Text("Lorem ipsum is dummy text used in laying out print, graphic or web designs.")
+            Text("How many gas stations are there in the United States?")
                 .fontWeight(.semibold)
                 .kerning(1.3)
                 .multilineTextAlignment(.center)
@@ -260,8 +190,4 @@ struct ScreenView: View {
 }
 
 // total Pages...
-var totalPages = 3
-
-
-
-
+var totalPages = 5
