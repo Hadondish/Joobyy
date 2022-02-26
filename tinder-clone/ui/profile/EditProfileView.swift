@@ -4,7 +4,7 @@
 //
 //  Created by Alejandro Piguave on 2/1/22.
 //
-
+//Images, myersbrigs, bio, questions/answers
 import SwiftUI
 
 struct EditProfileView: View {

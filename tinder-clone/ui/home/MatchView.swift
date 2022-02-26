@@ -6,13 +6,22 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct MatchView: View {
+    @EnvironmentObject var firestoreViewModel: FirestoreViewModel
     let matchName: String
     let matchImage: UIImage
+    let matchID: String
+    @State private var typingMessage: String = "Nice to meet you. Would you be interested in an interview?🗣"
     let onSendMessageButtonClicked: () -> ()
     let onKeepSwipingClicked: () -> ()
+    private var userId: String {
+        Auth.auth().currentUser?.uid ?? ""
+        
+    }
     var body: some View {
+        
         VStack{
             Spacer()
             Image("its-a-match").resizable().scaledToFit()
@@ -21,7 +30,7 @@ struct MatchView: View {
             Image(uiImage: matchImage)
                 .centerCropped().aspectRatio(0.7, contentMode: .fit)
                 .cornerRadius(10)
-            Button(action: onSendMessageButtonClicked, label: {
+            Button(action:sendMessage, label: {
                 Text("send-message").padding([.leading,.trailing], 25).padding([.top, .bottom], 15)
             }).background(.white).cornerRadius(25).padding(.top)
             
@@ -33,11 +42,18 @@ struct MatchView: View {
         .padding()
         .background(LinearGradient(colors: AppColor.appColors.map{$0.opacity(0.8)}, startPoint: .leading, endPoint: .trailing))
     }
+//    if(isPresent) { // <-- Here
+//                   sendMessage()
+//               }
+    func sendMessage(){
+        firestoreViewModel.sendMessage(matchId: userId > matchID ? userId + matchID : matchID + userId, message: typingMessage)
+       
+    }
 }
 
 struct MatchView_Previews: PreviewProvider {
     static var previews: some View {
-        MatchView(matchName: "Elon", matchImage: UIImage(named: "elon_musk")!, onSendMessageButtonClicked: {}, onKeepSwipingClicked: {})
+        MatchView(matchName: "Elon", matchImage: UIImage(named: "elon_musk")!, matchID: "", onSendMessageButtonClicked: {}, onKeepSwipingClicked: {})
     }
 }
 

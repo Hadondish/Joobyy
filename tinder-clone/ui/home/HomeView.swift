@@ -14,6 +14,8 @@ struct HomeView: View {
     @State private var anim = false
     @State private var showMatchView = false
     @State private var matchName = ""
+    @State private var matchID = ""
+
     @State private var matchImage: UIImage = UIImage()
 
     var body: some View {
@@ -25,6 +27,7 @@ struct HomeView: View {
                     } else {
                         SwipeView(profiles: $profiles, onSwiped: { userModel, hasLiked in
                             firestoreViewModel.swipeUser(swipedUserId: userModel.userId, hasLiked: hasLiked, onMatch: {
+                                matchID = userModel.userId
                                 matchName = userModel.name
                                 matchImage = userModel.pictures.first!
                                 withAnimation{
@@ -58,7 +61,7 @@ struct HomeView: View {
             .onAppear(perform: performOnAppear)
             
             if(showMatchView){
-                MatchView(matchName: matchName, matchImage: matchImage, onSendMessageButtonClicked: {
+                MatchView(matchName: matchName, matchImage:matchImage,matchID: matchID, onSendMessageButtonClicked: {
                     withAnimation{
                         showMatchView.toggle()
                     }
