@@ -1,109 +1,109 @@
 {
   "images" : [
     {
-      "filename" : "Joobie-5 (4).jpg",
+      "filename" : "AppIcon20x20@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "Joobie-5 (6).jpg",
+      "filename" : "AppIcon20x20@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
     },
     {
-      "filename" : "Joobie-5 (7).jpg",
+      "filename" : "AppIcon29x29@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "Joobie-5 (9).jpg",
+      "filename" : "AppIcon29x29@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
-      "filename" : "Joobie-5 (10).jpg",
+      "filename" : "AppIcon40x40@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "Joobie-5 (12).jpg",
+      "filename" : "AppIcon40x40@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
-      "filename" : "Joobie-5 (3).jpg",
+      "filename" : "AppIcon60x60@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "Joobie-5 (2).jpg",
+      "filename" : "AppIcon60x60@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
-      "filename" : "Joobie-5 (17).jpg",
+      "filename" : "AppIcon20x20.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "20x20"
     },
     {
-      "filename" : "Joobie-5 (18).jpg",
+      "filename" : "AppIcon20x20@2x-1.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "Joobie-5 (19).jpg",
+      "filename" : "AppIcon29x29.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "29x29"
     },
     {
-      "filename" : "Joobie-5 (20).jpg",
+      "filename" : "AppIcon29x29@2x-1.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "Joobie-5 (21).jpg",
+      "filename" : "AppIcon40x40.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "40x40"
     },
     {
-      "filename" : "Joobie-5 (22).jpg",
+      "filename" : "AppIcon40x40@2x-1.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "Joobie-5 (16).jpg",
+      "filename" : "AppIcon76x76.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "76x76"
     },
     {
-      "filename" : "Joobie-5 (15).jpg",
+      "filename" : "AppIcon76x76@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
     },
     {
-      "filename" : "Joobie-5 (14).jpg",
+      "filename" : "AppIcon83.5x83.5@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "83.5x83.5"
     },
     {
-      "filename" : "Joobie-5@3x.jpg",
+      "filename" : "AppIcon1024x1024.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"

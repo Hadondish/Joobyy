@@ -15,7 +15,7 @@ struct LoginView: View {
     var body: some View {
         VStack{
             Spacer()
-            Image("logo").resizable()
+            Image("logoWhite").resizable()
                 .scaledToFit()
                 .frame(width: 150).padding(40).aspectRatio( contentMode: .fit)
             
@@ -26,7 +26,7 @@ struct LoginView: View {
                     Image("icons8-google-48")
                         .resizable()
                         .frame(width: 24, height: 24)
-                    Text("Sign In with Your Penis")
+                    Text("Sign In with Google")
                         .foregroundColor(.gray)
                 }
                 .padding(.top, 10)
