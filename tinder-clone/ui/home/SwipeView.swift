@@ -40,7 +40,7 @@ struct SwipeView: View {
                 Spacer()
                 GradientOutlineButton(action:{swipeAction = .swipeLeft}, iconName: "multiply", colors: AppColor.dislikeColors)
                 Spacer()
-                GradientOutlineButton(action: {swipeAction = .swipeRight}, iconName: "heart", colors: AppColor.likeColors)
+                GradientOutlineButton(action: {swipeAction = .swipeRight}, iconName: "star", colors: AppColor.likeColors)
                 Spacer()
             }.padding(.bottom)
         }
