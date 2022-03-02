@@ -4,7 +4,7 @@ Tinder clone application written using SwiftUI, Firebase, CoreData, Swift Packag
 ##Login screen
 Only Google Sign in is allowed. Once the user has logged in, the app will perform a check to decide if the user has already created a profile, if that's the case, he will be redirected to the Home screen, otherwise the Create Profile screen will be shown for the user to complete his profile information before proceding to use the application.
 
-<img src="https://github.com/alejandro-piguave/tinder-clone-ios-public/blob/main/screenshots/login_screen.jpeg" width="250">
+<img src="https://github.com/alejandro-piguave/tinder-clone-ios-public/blob/main/screenshots/Screen Shot 2022-03-02 at 2.40.43 AM.png" width="250">
 
 ## Create Profile screen
 In this screen the user will be required to complete the following actions:
