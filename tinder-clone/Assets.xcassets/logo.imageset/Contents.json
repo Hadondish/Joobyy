@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "tinder_logo.png",
+      "filename" : "Joobie-3.jpeg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Aurum-Speakers-Bureau-Andrew-Ng.jpeg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Joobie-4.jpeg",
       "idiom" : "universal",
       "scale" : "3x"
     }

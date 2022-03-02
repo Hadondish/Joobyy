@@ -9,11 +9,11 @@ import SwiftUI
 
 class AppColor{
     
-    //Pastel Green - 77dd77
+    //Pastel Green -
     
     static let dislikeColors = [Color(hex: "ff6560"), Color(hex: "f83770")]
     static let likeColors = [Color(hex: "6ceac5"), Color(hex: "16dba1")]
-    static let appColors = [Color(hex: "e83984"), Color(hex: "f47d55")]
+    static let appColors = [Color(hex: "BFEEB7"), Color(hex: "77dd77")]
     static let purpleColors = [Color(hex: "831bfc"),Color(hex: "9c59ea")]
     
     static let appRed = Color(hex: "ff4457")
