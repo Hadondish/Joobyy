@@ -185,6 +185,7 @@ struct ScreenView: View {
     var title: String
     var detail: String
     var bgColor: Color
+  
     
     @AppStorage("currentPage") var currentPage = 1
     
@@ -195,7 +196,7 @@ struct ScreenView: View {
                 
                 // Showing it only for first Page...
                 if currentPage == 1{
-                    Text("Hello Member!")
+                    Text("Hello!👋")
                         .font(.title)
                         .fontWeight(.semibold)
                         // Letter Spacing...
@@ -246,10 +247,18 @@ struct ScreenView: View {
                 .padding(.top)
             
             // Change with your Own Thing....
-            Text("Lorem ipsum is dummy text used in laying out print, graphic or web designs.")
+            Text("If you could compare yourself with any animal, which would it be and why?")
                 .fontWeight(.semibold)
                 .kerning(1.3)
                 .multilineTextAlignment(.center)
+            
+            
+            //If you could compare you
+            
+            //Letting User text an answer
+           
+                
+            
             
             // Minimum Spacing When Phone is reducing...
             

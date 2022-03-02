@@ -40,6 +40,7 @@ class AuthViewModel: NSObject, ObservableObject {
         }
     }
     
+    
     func signInWithGoogle(controller: UIViewController){
         if authState == .logged {
             return
