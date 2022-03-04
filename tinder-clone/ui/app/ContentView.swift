@@ -119,18 +119,18 @@ struct WalkthroughScreen: View {
             // Changing Between Views....
             
             if currentPage == 1{
-                ScreenView(image: "image1", title: "Step 1", detail: "", bgColor: Color("color1"))
+                ScreenView(image: "image1", title: "Step 1", detail: "", bgColor: Color("color1"), question: "If you could compare yourself with any animal, which would it be and why? 🐶", answer: " ")
                     .transition(.scale)
             }
             if currentPage == 2{
             
-                ScreenView(image: "image2", title: "Step 2", detail: "", bgColor: Color("color2"))
+                ScreenView(image: "image2", title: "Step 2", detail: "", bgColor: Color("color2"), question: "How many square feet of pizza are eaten in the U.S. each year? 🍕", answer: " ")
                     .transition(.scale)
             }
             
             if currentPage == 3{
                 
-                ScreenView(image: "image3", title: "Step 3", detail: "", bgColor: Color("color3"))
+                ScreenView(image: "image3", title: "Step 3", detail: "", bgColor: Color("color3"), question: "Tell me about a time when you disagreed with your manager's leaership style or team culture🧑‍💼", answer: " ")
                     .transition(.scale)
             }
             
@@ -185,9 +185,13 @@ struct ScreenView: View {
     var title: String
     var detail: String
     var bgColor: Color
-  
+    
+    //Questions and Answers
+    var question: String
+    var answer: String
     
     @AppStorage("currentPage") var currentPage = 1
+    @State private var goodAnswer: String = ""
     
     var body: some View {
         VStack(spacing: 20){
@@ -247,10 +251,12 @@ struct ScreenView: View {
                 .padding(.top)
             
             // Change with your Own Thing....
-            Text("If you could compare yourself with any animal, which would it be and why?")
+            Text(question)
                 .fontWeight(.semibold)
                 .kerning(1.3)
                 .multilineTextAlignment(.center)
+            
+            TextField("Enter your answer", text: $goodAnswer)
             
             
             //If you could compare you
