@@ -189,7 +189,7 @@ class FirestoreViewModel: NSObject, ObservableObject{
         })
     }
     
-    private func fetchMainPicture(profileId: String, onCompletion: @escaping(Result<UIImage, DomainError>)->()){
+    func fetchMainPicture(profileId: String, onCompletion: @escaping(Result<UIImage, DomainError>)->()){
         let picRef = storage.child("users").child(profileId).child("profile_pic_0.jpg")
         picRef.getData(maxSize: self.IMG_MAX_SIZE) { data, error in
                 if error != nil {
