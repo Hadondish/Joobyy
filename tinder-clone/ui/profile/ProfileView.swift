@@ -57,6 +57,7 @@ struct ProfileView: View {
     @State private var currentImageIndex: Int = 0
 
     var body: some View {
+        //beginning Vstack
         VStack {
             
             ZStack {
@@ -161,9 +162,10 @@ struct ProfileView: View {
             }
             .frame(height: 100)
             
-        }
+        }.onAppear(perform: performOnAppear)
         
     }
+    
     private func performOnAppear(){
     firestoreViewModel.fetchUserProfile(fetchedUserId: UID){ result in
         switch(result){
@@ -171,7 +173,7 @@ struct ProfileView: View {
             populateData(user)
             return
         case .failure(_):
-            self.showError = true
+            userName = "Failed Lol Loser";
             return
             
         }
