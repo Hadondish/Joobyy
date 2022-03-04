@@ -65,6 +65,7 @@
 		4FEB4276278DA433004B06AF /* FirestoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEB4275278DA433004B06AF /* FirestoreViewModel.swift */; };
 		4FEB427A278DA96D004B06AF /* TinderCloneCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FEB4278278DA96D004B06AF /* TinderCloneCoreData.xcdatamodeld */; };
 		4FEB427C278DAD97004B06AF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEB427B278DAD97004B06AF /* Persistence.swift */; };
+		5C29979827D0B6A50047B79F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29979727D0B6A50047B79F /* ProfileView.swift */; };
 		5C326ADC27C7934F001CA626 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C326ADB27C7934F001CA626 /* GoogleService-Info.plist */; };
 		65EB636427C8C3E700D9B466 /* Prescreening Questions -> Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65EB636327C8C3E700D9B466 /* Prescreening Questions -> Launch Screen.storyboard */; };
 		65EB636827CA1FFB00D9B466 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65EB636727CA1FFB00D9B466 /* View.xib */; };
@@ -147,6 +148,7 @@
 		4FEB4275278DA433004B06AF /* FirestoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreViewModel.swift; sourceTree = "<group>"; };
 		4FEB4279278DA96D004B06AF /* TinderCloneCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TinderCloneCoreData.xcdatamodel; sourceTree = "<group>"; };
 		4FEB427B278DAD97004B06AF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		5C29979727D0B6A50047B79F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5C326ADB27C7934F001CA626 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		65EB636327C8C3E700D9B466 /* Prescreening Questions -> Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Prescreening Questions -> Launch Screen.storyboard"; sourceTree = "<group>"; };
 		65EB636727CA1FFB00D9B466 /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				4FBA8DB0278F08630093DC26 /* ProfileLabel.swift */,
 				4F9EB9A527903CF300B9F31C /* ProfileForm.swift */,
 				4F9EB9A727903FD400B9F31C /* ProfileTextEditor.swift */,
+				5C29979727D0B6A50047B79F /* ProfileView.swift */,
 			);
 			path = profile;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				4FBA8DAB278EE7B00093DC26 /* ReorderableForEach.swift in Sources */,
 				4FB96152279EB95700CF0FEF /* ChatView.swift in Sources */,
 				4FEB427C278DAD97004B06AF /* Persistence.swift in Sources */,
+				5C29979827D0B6A50047B79F /* ProfileView.swift in Sources */,
 				4F31454727830F2D008D5D4A /* AddImageView.swift in Sources */,
 				4FEB427A278DA96D004B06AF /* TinderCloneCoreData.xcdatamodeld in Sources */,
 				4F08997B2780B9AC00A3BE95 /* Extensions.swift in Sources */,

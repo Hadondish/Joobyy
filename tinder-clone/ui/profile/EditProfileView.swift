@@ -22,6 +22,10 @@ struct EditProfileView: View {
     @State private var userBirthdate: String = ""
     @State private var userBio: String = ""
     
+    
+    
+    
+    //Below is for edit only
     @State private var showContentTypeSheet: Bool = false
     @State private var showError: Bool = false
     @State private var showRemoveConfirmation: Bool = false
