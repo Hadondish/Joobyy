@@ -130,7 +130,7 @@ struct WalkthroughScreen: View {
             
             if currentPage == 3{
                 
-                ScreenView(image: "image3", title: "Step 3", detail: "", bgColor: Color("color3"), question: "Tell me about a time when you disagreed with your manager's leaership style or team culture🧑‍💼", answer: " ")
+                ScreenView(image: "image3", title: "Step 3", detail: "", bgColor: Color("color3"), question: "Tell me about a time when you disagreed with your manager's leaership style or team culture.🧑‍💼", answer: " ")
                     .transition(.scale)
             }
             

@@ -177,6 +177,7 @@ struct ProfileView: View {
             return
             
         }
+            
     }}
     private func populateData(_ user: FirestoreUser){
         userBio = user.bio

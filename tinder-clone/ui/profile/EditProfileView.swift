@@ -21,6 +21,9 @@ struct EditProfileView: View {
     @State private var userName: String = ""
     @State private var userBirthdate: String = ""
     @State private var userBio: String = ""
+    @State private var myerText: String = ""
+
+    
     
     
     
@@ -90,6 +93,12 @@ struct EditProfileView: View {
                     Spacer()
                     Text(userBirthdate)
                 }
+                ProfileRow{
+                    ProfileLabel(title: "Myer Briggs Personality", systemName: "person.wave.2.fill")
+                    Spacer()
+                    Text(myerText)
+                }
+                
             }
             
             Button(action: {
