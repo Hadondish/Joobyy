@@ -11,6 +11,8 @@ struct SwipeCardView: View {
     let model: UserProfile
     
     @State private var currentImageIndex: Int = 0
+    @State var showingDetail = false
+
     
     var body: some View {
         ZStack(alignment: .bottom){
@@ -42,11 +44,18 @@ struct SwipeCardView: View {
                     HStack(alignment: .firstTextBaseline){
                         Text(model.name).font(.largeTitle).fontWeight(.semibold)
                         Text("\(model.age)").font(.title).fontWeight(.medium)
+                        Button(action: {
+                                    self.showingDetail.toggle()
+                                }) {
+                                    Text("Show Detail")
+                                }.sheet(isPresented: $showingDetail) {
+                                    ProfileView(UID: model.userId)
+                                };
                         Spacer()
                     }
                 }
                 .padding()
-                .foregroundColor(.white)
+                .foregroundColor(.primary)
             }
             .frame(maxWidth: .infinity)
         }
