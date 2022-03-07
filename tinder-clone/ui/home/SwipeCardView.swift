@@ -47,7 +47,7 @@ struct SwipeCardView: View {
                         Button(action: {
                                     self.showingDetail.toggle()
                                 }) {
-                                    Text("Show Detail")
+                                    Image(systemName: "person.circle").font(.system(size: 24, weight: .bold)).foregroundColor(.blue)
                                 }.sheet(isPresented: $showingDetail) {
                                     ProfileView(UID: model.userId)
                                 };

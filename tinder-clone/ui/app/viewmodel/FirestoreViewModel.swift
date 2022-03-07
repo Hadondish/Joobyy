@@ -112,13 +112,23 @@ class FirestoreViewModel: NSObject, ObservableObject{
             if let document = doc, document.exists {
                 self.db.collection("matches").document(self.getMatchId(userId1: swipedUserId, userId2: self.userId!))
                         .setData(["usersMatched": [swipedUserId, self.userId!], "timestamp": FieldValue.serverTimestamp()])
-  
+                self.db.collection("users").document(self.userId!).updateData([
+                    (FirestoreUser.CodingKeys.matched.rawValue) : FieldValue.arrayUnion([swipedUserId])
+                ])
+                self.db.collection("users").document(swipedUserId).updateData([
+                    (FirestoreUser.CodingKeys.matched.rawValue) : FieldValue.arrayUnion([self.userId])
+                ])
+
+               
                 onMatch()
             }
         })
         
     }
-
+//    func fetchMutuals(candidateId: String){
+//        db.collection("users").document(userId)
+//    }
+    
     func fetchProfiles(onCompletion: @escaping(Result<[UserProfile], DomainError>)->()){
         fetchUserProfile(onCompletion: {result in
             switch result{
@@ -401,7 +411,7 @@ class FirestoreViewModel: NSObject, ObservableObject{
     
     func createUserProfile(name: String, birhtDate: Date, bio: String, isMale: Bool, orientation: Orientation, pictures: [UIImage], onCompletion: @escaping (Result<Void, DomainError>) -> ()){
         
-        let firestoreUser = FirestoreUser(name: name, birthDate: birhtDate, bio: bio, isMale: isMale, orientation: orientation, liked: [], passed: [])
+        let firestoreUser = FirestoreUser(name: name, birthDate: birhtDate, bio: bio, isMale: isMale, orientation: orientation, liked: [], passed: [], matched: [])
         
         do {
             try db.collection("users").document(userId!).setData(from: firestoreUser)
@@ -430,7 +440,7 @@ class FirestoreViewModel: NSObject, ObservableObject{
         }
         
         for (index, pic) in pics.enumerated(){
-            let data = pic.jpegData(compressionQuality: 1.0)!
+            let data = pic.jpegData(compressionQuality: 0.1)!
             let picRef = userRef.child("profile_pic_\(index).jpg")
             localPictures.append(LocalPicture())
             picRef.putData(data, metadata: nil) { (metadata, error) in

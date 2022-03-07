@@ -16,6 +16,7 @@ public struct FirestoreUser: Codable {
     let orientation: Orientation
     let liked: [String]
     let passed: [String]
+    let matched: [String]
     
     var age: Int{
         return Date().years(from: birthDate)
@@ -29,6 +30,7 @@ public struct FirestoreUser: Codable {
         case orientation
         case liked
         case passed
+        case matched
     }
 }
 
