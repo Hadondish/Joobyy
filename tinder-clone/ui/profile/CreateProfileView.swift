@@ -13,6 +13,8 @@ struct CreateProfileView: View {
     @State private var userBio: String = ""
     @State private var desiredPosition: String = ""
     @State private var myerType: String = ""
+    @State private var hobbies: String = ""
+
 
     @State private var datePickerSelection: Date = Date()
     @State private var genderSelection: String = ""
@@ -59,9 +61,22 @@ struct CreateProfileView: View {
                     ProfileRow {
                         TextField("Enter Desired Job Position", text: $desiredPosition)
                     }
+                  
+                    ProfileRow{
+                        Text("Find out your Myers Briggs Personality⤵️")
+                            .scaledToFit()
+                    }
+                    //Personality Test
+                    ProfileRow {
+                        Link("Personality Test", destination: URL(string: "https://bit.ly/MyerBriggsPersonality")!)
+                       
+                    }
                     //Myer Briggs
-                    ProfileSection("Myer Briggs Type") {
-                        TextField("   Enter your Myer briggs type ", text: $myerType)
+                    ProfileRow {
+                        TextField("Enter Myers Briggs Personality Type", text: $myerType)
+                    }
+                    ProfileRow {
+                        TextField("Favorite hobbies outside of work", text: $hobbies)
                     }
                    
                 }
