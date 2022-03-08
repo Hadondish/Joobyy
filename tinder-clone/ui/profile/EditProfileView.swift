@@ -183,6 +183,7 @@ struct EditProfileView: View {
         userBio = user.bio
         userName = user.name
         userBirthdate = user.birthDate.getFormattedDate(format: dateFormat)
+        myerText = user.mb
         genderSelection = Constants.genderOptions[user.isMale ? 0 : 1]
         orientationSelection = user.orientation
         self.initialBio = userBio

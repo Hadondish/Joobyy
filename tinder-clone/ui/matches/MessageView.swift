@@ -17,13 +17,7 @@ struct MessageView: View {
 
     
     var body: some View {
-        Button(action: {
-                    self.showingDetail.toggle()
-                }) {
-                    Text("Show Detail")
-                }.sheet(isPresented: $showingDetail) {
-                    ProfileView(UID: match.userId)
-                }
+        
         
         HStack(alignment: .bottom, spacing: 15) {
             

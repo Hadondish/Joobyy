@@ -15,6 +15,8 @@ struct ChatView: View {
     @State private var messageList: [MessageModel] = []
     @State private var listener: ListenerRegistration? = nil
     @State private var isFirstMessageUpdate = true
+    @State var showingDetail = false
+
     var body: some View {
         VStack{
             Spacer()
@@ -49,6 +51,13 @@ struct ChatView: View {
             }.frame(minHeight: CGFloat(50)).padding([.trailing, .leading])
         }
         .navigationTitle(match.name)
+        .toolbar{  Button(action: {
+            self.showingDetail.toggle()
+        }) {
+            Image(systemName:"person.circle")
+        }.sheet(isPresented: $showingDetail) {
+            ProfileView(UID: match.userId)
+        }}
         .onAppear(perform: performOnAppear)
         .onDisappear(perform: performOnDisappear)
     }
