@@ -52,6 +52,9 @@ struct ProfileView: View {
     @State private var userName: String = ""
     @State private var userBirthdate: String = ""
     @State private var userBio: String = ""
+    @State private var userHobbies: String = ""
+    @State private var userJob: String = ""
+    @State private var userMB: String = ""
     @State private var showError: Bool = false
 
     
@@ -121,7 +124,19 @@ struct ProfileView: View {
                         .font(.system(size: 70))
                         .bold()
                 }
-                Text("ENTJ")
+                Text(userMB)
+                    .font(.largeTitle)
+                    .bold()
+                    .italic()
+                Text(userHobbies)
+                    .font(.largeTitle)
+                    .bold()
+                    .italic()
+                Text(userJob)
+                    .font(.largeTitle)
+                    .bold()
+                    .italic()
+                Text(userBirthdate)
                     .font(.largeTitle)
                     .bold()
                     .italic()
@@ -206,7 +221,9 @@ struct ProfileView: View {
         userBio = user.bio
         userName = user.name
         userBirthdate = user.birthDate.getFormattedDate(format: dateFormat)
-        
+        userJob = user.job
+        userMB = user.mb
+        userHobbies = user.hobbies
         initialOrientation = user.orientation
         self.initialBio = userBio
         self.initialOrientation = user.orientation

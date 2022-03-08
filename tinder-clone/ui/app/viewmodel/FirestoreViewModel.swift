@@ -409,9 +409,9 @@ class FirestoreViewModel: NSObject, ObservableObject{
         })
     }
     
-    func createUserProfile(name: String, birhtDate: Date, bio: String, isMale: Bool, orientation: Orientation, pictures: [UIImage], onCompletion: @escaping (Result<Void, DomainError>) -> ()){
+    func createUserProfile(name: String, birhtDate: Date, bio: String, isMale: Bool, orientation: Orientation, pictures: [UIImage], mb: String, job: String, hobbies: String, onCompletion: @escaping (Result<Void, DomainError>) -> ()){
         
-        let firestoreUser = FirestoreUser(name: name, birthDate: birhtDate, bio: bio, isMale: isMale, orientation: orientation, liked: [], passed: [], matched: [])
+        let firestoreUser = FirestoreUser(name: name, birthDate: birhtDate, bio: bio, isMale: isMale, orientation: orientation, liked: [], passed: [], matched: [], mb: mb, hobbies: hobbies, job: job)
         
         do {
             try db.collection("users").document(userId!).setData(from: firestoreUser)

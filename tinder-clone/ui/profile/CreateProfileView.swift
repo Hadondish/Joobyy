@@ -161,7 +161,7 @@ struct CreateProfileView: View {
     
     private func submitInformation(){
         showLoading = true
-        firestoreViewModel.createUserProfile(name: userName, birhtDate: datePickerSelection, bio: userBio, isMale: Constants.genderOptions.firstIndex(of: genderSelection) == 0, orientation: .both, pictures: pictures){ result in
+        firestoreViewModel.createUserProfile(name: userName, birhtDate: datePickerSelection, bio: userBio, isMale: Constants.genderOptions.firstIndex(of: genderSelection) == 0, orientation: .both, pictures: pictures, mb: myerType, job: desiredPosition, hobbies: hobbies){ result in
             self.showLoading = false
             switch result{
             case .success():
