@@ -18,7 +18,7 @@ enum DomainError: Error{
 }
 
 class FirestoreViewModel: NSObject, ObservableObject{
-    private let IMG_MAX_SIZE: Int64 = 10 * 1024 * 1024
+    private let IMG_MAX_SIZE: Int64 = 1024 * 1024
     private let viewContext = PersistenceController.shared.container.viewContext
     private let db = Firestore.firestore()
     private let storage = Storage.storage().reference()
