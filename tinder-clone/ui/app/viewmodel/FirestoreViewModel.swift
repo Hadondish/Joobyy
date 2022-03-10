@@ -210,7 +210,7 @@ class FirestoreViewModel: NSObject, ObservableObject{
         }
     }
     
-    private func fetchProfilePictures(profileId: String, onCompletion: @escaping(Result<[UIImage], DomainError>)->()){
+    func fetchProfilePictures(profileId: String, onCompletion: @escaping(Result<[UIImage], DomainError>)->()){
         let userRef = storage.child("users").child(profileId)
         userRef.listAll(completion: {result, error in
             if error != nil{
@@ -368,6 +368,62 @@ class FirestoreViewModel: NSObject, ObservableObject{
                 onCompletion(.failure(.parsingError))
             }
         }
+    }
+    func fetchMutuals(fetchedUserId: String? = nil, fetchedUserId2: String? = nil) ->  Int{
+        let usedId1: String = fetchedUserId ?? userId!
+        let usedId2: String = fetchedUserId2 ?? userId!
+        var matches1: [String] = []
+        var matches2: [String] = []
+
+//        db.collection("users").document(usedId1).getDocument { (document, error) in
+//            if error != nil{
+//                return
+//            }
+//
+//            if let user = try? document?.data(){
+//                matches1 = user["matched"]! as? [String] ?? []
+//            } else {
+//            }
+//        }
+//
+//        db.collection("users").document(usedId2).getDocument { (document, error) in
+//            if error != nil{
+//                return
+//            }
+//            matches2 = document?.get("matched") as! [String]
+//
+//        }\
+        let docRef = db.collection("users").document(usedId1)
+
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                matches1 = document.get("matched") as! [String]
+                print("Document data:")
+            } else {
+                print("Document does not exist")
+            }
+        }
+        let docRef2 = db.collection("users").document(usedId2)
+
+        docRef2.getDocument { (document, error) in
+            if let document = document, document.exists {
+                matches2 = document.get("matched") as! [String]
+                print("Document data:")
+            } else {
+                print("Document does not exist")
+            }
+        }
+        print(matches1)
+        print(matches2)
+        var count: Int = 0
+        for m in matches1{
+            for v in matches2{
+                if (m.contains(v)){
+                    count = count + 1
+                }
+            }
+        }
+        return count
     }
     func updateUserProfile(modified profileFields: [String: Any], onCompletion: @escaping (Result<Void,DomainError>) -> () ){
         let ref = db.collection("users").document(userId!)
