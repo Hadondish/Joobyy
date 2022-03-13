@@ -27,6 +27,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct Item: Identifiable {
     var id = UUID()
@@ -39,12 +40,16 @@ struct ProfileView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var firestoreViewModel: FirestoreViewModel
     @EnvironmentObject var authViewModel: AuthViewModel
-    
+    private var CurrentUserId: String {
+        Auth.auth().currentUser?.uid ?? ""
+        
+    }
     private let dateFormat = "MMM d, yyyy"
     @State private var initialBio = ""
     @State private var initialGender = ""
     @State private var initialOrientation: Orientation = .both
-    
+    @State private var loading = true
+
     @State private var isLoading: Bool = false
     @State private var pictures: [UIImage] = []
     @State private var image = UIImage()
@@ -56,6 +61,7 @@ struct ProfileView: View {
     @State private var userJob: String = ""
     @State private var userMB: String = ""
     @State private var showError: Bool = false
+    @State var showingDetail = false
 
     
     @State private var items: [Item] = [.init(name: "Favorite Songs", details: "Hot or Cold"), .init(name: "Providing Services", details: "iOS Development and Mobile Application Development")]
@@ -66,28 +72,7 @@ struct ProfileView: View {
         //beginning Vstack
         ScrollView{
         VStack {
-            
-//            ZStack {
-//                GeometryReader { proxy in
-//                    Image(uiImage: pictures[0])
-//                        .resizable()
-//                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100, maxHeight: 100)
-//
-//                    Button {} label: {
-//                        Image(systemName: "pencil")
-//                            .resizable()
-//                            .frame(width: 15, height: 15)
-//                            .font(.title)
-//                            .background(
-//                                Circle()
-//                                    .foregroundColor(.white)
-//                                    .frame(width: 30, height: 30)
-//                            )
-//                    }
-//                    .offset(x: proxy.size.width - 35, y: 25)
-//
-//                }
-//            }
+
             ZStack(alignment: .bottom){
                 GeometryReader{ geometry in
                     Image(uiImage: image)
@@ -120,7 +105,7 @@ struct ProfileView: View {
             
             VStack(alignment: .leading) {
                 HStack {
-                    Text(userName)
+                    Text(String(pictures.count))
                         .font(.system(size: 70))
                         .bold()
                 }
@@ -140,7 +125,8 @@ struct ProfileView: View {
                     .font(.largeTitle)
                     .bold()
                     .italic()
-
+                Text(String(firestoreViewModel.fetchMutuals(fetchedUserId: CurrentUserId))).font(.title).fontWeight(.medium)
+//                forEach(pictures.count)
 //                Text("Talks about #swift, #swiftui, and #iosdevelopment")
 //                    .font(.caption)
 //                    .foregroundColor(.gray)
@@ -155,7 +141,46 @@ struct ProfileView: View {
                     .foregroundColor(.gray)
             }
 
+            ZStack(alignment: .bottom){
+                if (loading){
+                    ProgressView()
+                }else{
+                    GeometryReader{ geometry in
+                        Image(uiImage: pictures[currentImageIndex])
+                            .centerCropped()
+                            .gesture(DragGesture(minimumDistance: 0).onEnded({ value in
+                                if value.translation.equalTo(.zero){
+                                    if(value.location.x <= geometry.size.width/2){
+                                        showPrevPicture()
+                                    } else { showNextPicture()}
+                                }
+                            }))
+                    }
+                }
+                VStack{
+                    if(pictures.count > 1){
+                        HStack{
+                            ForEach(0..<pictures.count, id: \.self){ index in
+                                Rectangle().frame(height: 3).foregroundColor(index == currentImageIndex ? .white : .gray).opacity(index == currentImageIndex ? 1 : 0.5)
+                            }
+                        }
+                        .padding(.top, 6)
+                        .padding(.leading)
+                        .padding(.trailing)
+                    }
+                    Spacer()
+        
+                }
+                .frame(maxWidth: .infinity)
+            }
             
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .aspectRatio(0.7, contentMode: .fit)
+            .background(.white)
+            .cornerRadius(10)
+            .shadow(radius: 10)
+        
+        
             makeButtonView()
             
             ScrollView(.horizontal, showsIndicators: false) {
@@ -192,31 +217,24 @@ struct ProfileView: View {
             userName = "Failed Lol Loser";
             return
             
-        }
+        }}
+        firestoreViewModel.fetchProfilePictures(profileId: UID){ result in
+            switch(result){
+            case .success(let user):
+                loading = false;
+                pictures.append(contentsOf: user);
+                return
+            case .failure(_):
+                userName = "Failed Lol Loser";
+                return
+                
+            }}
 
             
     }
     
-        firestoreViewModel.fetchUserPictures(onCompletion: { result in
-            switch result{
-            case .success(let pictureList):
-                pictures = pictureList
-                previousPicCount = pictureList.count
-                return
-            case .failure(_):
-                return
-            }
-        }, onUpdate: {result in
-            switch result{
-            case .success(let pictureList):
-                pictures = pictureList
-                previousPicCount = pictureList.count
-                return
-            case .failure(_):
-                return
-            }
-        })
-    }
+        
+    
     private func populateData(_ user: FirestoreUser){
         userBio = user.bio
         userName = user.name

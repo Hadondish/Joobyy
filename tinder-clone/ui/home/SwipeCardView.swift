@@ -6,13 +6,18 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct SwipeCardView: View {
     let model: UserProfile
-    
+    @EnvironmentObject var firestoreViewModel: FirestoreViewModel
+
     @State private var currentImageIndex: Int = 0
     @State var showingDetail = false
-
+    private var CurrentUserId: String {
+        Auth.auth().currentUser?.uid ?? ""
+        
+    }
     
     var body: some View {
         ZStack(alignment: .bottom){
@@ -43,7 +48,7 @@ struct SwipeCardView: View {
                 VStack{
                     HStack(alignment: .firstTextBaseline){
                         Text(model.name).font(.largeTitle).fontWeight(.semibold)
-                        Text("\(model.age)").font(.title).fontWeight(.medium)
+                        Text(String(firestoreViewModel.fetchMutuals(fetchedUserId: CurrentUserId, fetchedUserId2: model.userId))).font(.title).fontWeight(.medium)
                         Button(action: {
                                     self.showingDetail.toggle()
                                 }) {
