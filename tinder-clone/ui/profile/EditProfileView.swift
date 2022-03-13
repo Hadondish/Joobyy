@@ -2,7 +2,7 @@
 //  ProfileView.swift
 //  tinder-clone
 //
-//  Created by Alejandro Piguave on 2/1/22.
+//  Created by Kevin and Kyle Tran on 2/1/22.
 //
 //Images, myersbrigs, bio, questions/answers
 import SwiftUI
@@ -183,7 +183,11 @@ struct EditProfileView: View {
         userBio = user.bio
         userName = user.name
         userBirthdate = user.birthDate.getFormattedDate(format: dateFormat)
+
         myerText = user.mb
+
+        //myerText = user.myerText
+
         genderSelection = Constants.genderOptions[user.isMale ? 0 : 1]
         orientationSelection = user.orientation
         self.initialBio = userBio
