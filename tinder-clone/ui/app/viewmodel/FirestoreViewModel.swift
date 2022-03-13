@@ -2,7 +2,7 @@
 //  EditProfileViewModel.swift
 //  tinder-clone
 //
-//  Created by Alejandro Piguave on 11/1/22.
+//  Created by Kevin and Kyle Tran on 11/1/22.
 //
 
 import Foundation
@@ -18,7 +18,7 @@ enum DomainError: Error{
 }
 
 class FirestoreViewModel: NSObject, ObservableObject{
-    private let IMG_MAX_SIZE: Int64 = 1024 * 1024
+    private let IMG_MAX_SIZE: Int64 = 10 * 1024 * 1024
     private let viewContext = PersistenceController.shared.container.viewContext
     private let db = Firestore.firestore()
     private let storage = Storage.storage().reference()
@@ -62,7 +62,7 @@ class FirestoreViewModel: NSObject, ObservableObject{
                 return
             }
             var matchList: [MatchModel] = []
-            var count = 0
+            var count = 1
             let maxCount = documentSnapshot.documents.count
             var hasFailed = false
             for document in documentSnapshot.documents{
@@ -156,7 +156,8 @@ class FirestoreViewModel: NSObject, ObservableObject{
             }
 
             var profileList: [UserProfile] = []
-            var count = 0
+            //Change count -1
+            var count = 1
             var hasFailed = false
             
             let filteredDocumentList = documentSnapshot.documents.filter{ $0.documentID != self.userId && !excludedUsers.contains($0.documentID)}
@@ -218,7 +219,9 @@ class FirestoreViewModel: NSObject, ObservableObject{
                 return
             }
             var profilePictures: [UIImage] = []
-            var count = 0
+            
+            
+            var count = 1
             var hasFailed = false
             for picRef in result.items{
                 picRef.getData(maxSize: self.IMG_MAX_SIZE) { data, error in
@@ -271,7 +274,7 @@ class FirestoreViewModel: NSObject, ObservableObject{
                 return
             }
             var updatedLocalPictures: [LocalPicture] = []
-            var count = 0
+            var count = 1
             var hasChanged = false
             for (index, picRef) in result.items.enumerated(){
                 picRef.getMetadata { metadata, error in
@@ -409,9 +412,9 @@ class FirestoreViewModel: NSObject, ObservableObject{
         })
     }
     
-    func createUserProfile(name: String, birhtDate: Date, bio: String, isMale: Bool, orientation: Orientation, pictures: [UIImage], mb: String, job: String, hobbies: String, onCompletion: @escaping (Result<Void, DomainError>) -> ()){
+    func createUserProfile(name: String, birhtDate: Date, bio: String, isMale: Bool, orientation: Orientation, pictures: [UIImage], mb: String, job: String, hobbies: String, firstAnswer: String, secondAnswer: String, thirdAnswer: String, onCompletion: @escaping (Result<Void, DomainError>) -> ()){
         
-        let firestoreUser = FirestoreUser(name: name, birthDate: birhtDate, bio: bio, isMale: isMale, orientation: orientation, liked: [], passed: [], matched: [], mb: mb, hobbies: hobbies, job: job)
+        let firestoreUser = FirestoreUser(name: name, birthDate: birhtDate, bio: bio, isMale: isMale, orientation: orientation, liked: [], passed: [], matched: [], mb: mb, hobbies: hobbies, job: job, firstAnswer: firstAnswer, secondAnswer: secondAnswer, thirdAnswer: thirdAnswer)
         
         do {
             try db.collection("users").document(userId!).setData(from: firestoreUser)
@@ -440,7 +443,7 @@ class FirestoreViewModel: NSObject, ObservableObject{
         }
         
         for (index, pic) in pics.enumerated(){
-            let data = pic.jpegData(compressionQuality: 0.1)!
+            let data = pic.jpegData(compressionQuality: 1)!
             let picRef = userRef.child("profile_pic_\(index).jpg")
             localPictures.append(LocalPicture())
             picRef.putData(data, metadata: nil) { (metadata, error) in
@@ -516,5 +519,5 @@ class FirestoreViewModel: NSObject, ObservableObject{
 struct LocalPicture{
     var data: Data? = nil
     var timestamp: Date? = nil
-    var position: Int16 = 0
+    var position: Int16 = 1
 }

@@ -2,7 +2,7 @@
 //  LoginView.swift
 //  Tinder 2
 //
-//  Created by Alejandro Piguave on 31/12/21.
+//  Created by Kevin and Kyle Tran on 31/12/21.
 //
 
 import SwiftUI

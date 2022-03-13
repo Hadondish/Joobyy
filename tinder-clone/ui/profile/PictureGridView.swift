@@ -2,7 +2,7 @@
 //  PictureGridView.swift
 //  tinder-clone
 //
-//  Created by Alejandro Piguave on 4/1/22.
+//  Created by Kevin and Kyle Tran on 4/1/22.
 //
 
 import SwiftUI

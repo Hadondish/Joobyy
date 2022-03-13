@@ -1,9 +1,7 @@
 //
 //  MatchView.swift
 //  tinder-clone
-//
-//  Created by Alejandro Piguave on 23/1/22.
-//
+
 
 import SwiftUI
 import Firebase
@@ -33,6 +31,8 @@ struct MatchView: View {
             Button(action:sendMessage, label: {
                 Text("send-message").padding([.leading,.trailing], 25).padding([.top, .bottom], 15)
             }).background(.white).cornerRadius(25).padding(.top)
+           
+            
             
             Button(action: onKeepSwipingClicked, label: {
                 Text("keep-swiping").foregroundColor(.white)

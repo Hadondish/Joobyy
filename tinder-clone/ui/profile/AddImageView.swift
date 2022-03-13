@@ -2,7 +2,7 @@
 //  AddImageView.swift
 //  tinder-clone
 //
-//  Created by Alejandro Piguave on 3/1/22.
+//  Created by Kevin and Kyle Tran on 3/1/22.
 //
 
 import SwiftUI

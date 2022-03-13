@@ -2,7 +2,7 @@
 //  DragRelocateDelegate.swift
 //  tinder-clone
 //
-//  Created by Alejandro Piguave on 12/1/22.
+//  Created by Kevin and Kyle Tran on 12/1/22.
 //
 
 import SwiftUI

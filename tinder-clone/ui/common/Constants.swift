@@ -2,7 +2,7 @@
 //  Constants.swift
 //  tinder-clone
 //
-//  Created by Alejandro Piguave on 18/1/22.
+//  Created by Kevin and Kyle Tran on 18/1/22.
 //
 
 import Foundation

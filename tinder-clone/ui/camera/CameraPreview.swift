@@ -2,7 +2,7 @@
 //  CameraPreview.swift
 //  Marcianito GO
 //
-//  Created by Alejandro Piguave on 23/12/21.
+//  Created by Kevin and Kyle Tran on 23/12/21.
 //
 
 import SwiftUI

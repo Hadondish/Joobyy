@@ -2,7 +2,7 @@
 //  InititalConfigurationView.swift
 //  tinder-clone
 //
-//  Created by Alejandro Piguave on 2/1/22.
+//  Created by Kevin and Kyle Tran on 2/1/22.
 //
 
 import SwiftUI
@@ -14,6 +14,16 @@ struct CreateProfileView: View {
     @State private var desiredPosition: String = ""
     @State private var myerType: String = ""
     @State private var hobbies: String = ""
+    
+    @State private var firstQuestion: String = ""
+    @State private var secondQuestion: String = ""
+    @State private var thirdQuestion: String = ""
+    
+    @State private var firstAnswer: String = ""
+    @State private var secondAnswer: String = ""
+    @State private var thirdAnswer: String = ""
+    
+    
 
 
     @State private var datePickerSelection: Date = Date()
@@ -83,9 +93,32 @@ struct CreateProfileView: View {
                 
                 ProfileSection("about-you"){
                     ProfileRow{
-                        ProfileTextEditor($userBio)
+                        TextField("", text: $userBio)
+                            .fixedSize(horizontal: false, vertical: true)
+
+
+                        
                     }
                 }
+                
+                
+                
+                ProfileSection("If you could compare yourself with any animal, which would it be and why? 🐶") {
+                    ProfileRow {
+                    TextField("", text: $firstAnswer)
+                }
+                }
+                ProfileSection("How many square feet of pizza are eaten in the U.S. each year? 🍕") {
+                    ProfileRow {
+                    TextField("", text: $secondAnswer)
+                    }
+                }
+                ProfileSection("Who would be your ideal coworker and why? 👨🏻‍💼") {
+                    ProfileRow {
+                    TextField("", text: $thirdAnswer)
+                    }
+                }
+               
                 
                 ProfileSection("gender"){
                     ProfileRow{
@@ -161,7 +194,7 @@ struct CreateProfileView: View {
     
     private func submitInformation(){
         showLoading = true
-        firestoreViewModel.createUserProfile(name: userName, birhtDate: datePickerSelection, bio: userBio, isMale: Constants.genderOptions.firstIndex(of: genderSelection) == 0, orientation: .both, pictures: pictures, mb: myerType, job: desiredPosition, hobbies: hobbies){ result in
+        firestoreViewModel.createUserProfile(name: userName, birhtDate: datePickerSelection, bio: userBio, isMale: Constants.genderOptions.firstIndex(of: genderSelection) == 0, orientation: .both, pictures: pictures, mb: myerType, job: desiredPosition, hobbies: hobbies, firstAnswer: firstAnswer, secondAnswer: secondAnswer, thirdAnswer: thirdAnswer){ result in
             self.showLoading = false
             switch result{
             case .success():

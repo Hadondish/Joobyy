@@ -2,7 +2,7 @@
 //  FirestoreUser.swift
 //  tinder-clone
 //
-//  Created by Alejandro Piguave on 3/1/22.
+//  Created by Kevin and Kyle Tran on 3/1/22.
 //
 
 import Foundation
@@ -20,6 +20,11 @@ public struct FirestoreUser: Codable {
     let mb: String
     let hobbies: String
     let job: String
+    
+    let firstAnswer: String
+    let secondAnswer: String
+    let thirdAnswer: String
+    
     //MB, hobbies, job,
     var age: Int{
         return Date().years(from: birthDate)
@@ -37,6 +42,10 @@ public struct FirestoreUser: Codable {
         case mb
         case hobbies
         case job
+        case firstAnswer
+        case secondAnswer
+        case thirdAnswer
+        
     }
 }
 

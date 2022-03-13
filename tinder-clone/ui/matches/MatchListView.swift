@@ -2,7 +2,7 @@
 //  ChatView.swift
 //  tinder-clone
 //
-//  Created by Alejandro Piguave on 2/1/22.
+//  Created by Kevin and Kyle Tran on 2/1/22.
 //
 
 import SwiftUI

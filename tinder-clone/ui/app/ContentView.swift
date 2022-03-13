@@ -110,6 +110,14 @@ struct WalkthroughScreen: View {
     
     @AppStorage("currentPage") var currentPage = 1
     
+    
+    //Variables for the Answers to the Onboard
+    @State  var firstAnswer: String = ""
+    @State  var secondAnswer: String = ""
+    @State  var thirdAnswer: String = ""
+    
+    
+    
     var body: some View{
         
         // For Slide Animation...
@@ -119,18 +127,18 @@ struct WalkthroughScreen: View {
             // Changing Between Views....
             
             if currentPage == 1{
-                ScreenView(image: "image1", title: "Step 1", detail: "", bgColor: Color("color1"), question: "If you could compare yourself with any animal, which would it be and why? 🐶", answer: " ")
+                ScreenView(image: "image1", title: "Step 1", detail: "", bgColor: Color("color1"), question: "If you could compare yourself with any animal, which would it be and why? 🐶", answer: firstAnswer)
                     .transition(.scale)
             }
             if currentPage == 2{
             
-                ScreenView(image: "image2", title: "Step 2", detail: "", bgColor: Color("color2"), question: "How many square feet of pizza are eaten in the U.S. each year? 🍕", answer: " ")
+                ScreenView(image: "image2", title: "Step 2", detail: "", bgColor: Color("color2"), question: "How many square feet of pizza are eaten in the U.S. each year? 🍕", answer: secondAnswer)
                     .transition(.scale)
             }
             
             if currentPage == 3{
                 
-                ScreenView(image: "image3", title: "Step 3", detail: "", bgColor: Color("color3"), question: "Tell me about a time when you disagreed with your manager's leaership style or team culture.🧑‍💼", answer: " ")
+                ScreenView(image: "image3", title: "Step 3", detail: "", bgColor: Color("color3"), question: "Who would be your ideal coworker and why? 👨🏻‍💼", answer: thirdAnswer)
                     .transition(.scale)
             }
             

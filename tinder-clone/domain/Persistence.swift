@@ -2,7 +2,7 @@
 //  Persistence.swift
 //  tinder-clone
 //
-//  Created by Alejandro Piguave on 11/1/22.
+//  Created by Kevin and Kyle Tran on 11/1/22.
 //
 
 import CoreData

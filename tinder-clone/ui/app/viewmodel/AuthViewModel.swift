@@ -2,7 +2,7 @@
 //  GoogleSignInViewModel.swift
 //  Tinder 2
 //
-//  Created by Alejandro Piguave on 1/1/22.
+//  Created by Kevin and Kyle Tran on 1/1/22.
 //
 
 import Foundation
