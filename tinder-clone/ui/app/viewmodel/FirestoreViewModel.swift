@@ -372,56 +372,55 @@ class FirestoreViewModel: NSObject, ObservableObject{
             }
         }
     }
+    func fetchUserMatches(fetchedUserId: String? = nil, completion: @escaping ([String]?, Error?)-> Void){
+        let docRef = db.collection("users").document(fetchedUserId ?? userId!)
+        var matches: [String] = []
+
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dummy = document.get("matched") as! [String]
+                matches = dummy
+                completion(matches, nil)
+
+            } else {
+                print("Document does not exist")
+
+            }
+        }
+    }
+    
     func fetchMutuals(fetchedUserId: String? = nil, fetchedUserId2: String? = nil) ->  Int{
         let usedId1: String = fetchedUserId ?? userId!
         let usedId2: String = fetchedUserId2 ?? userId!
         var matches1: [String] = []
         var matches2: [String] = []
+        fetchUserMatches(fetchedUserId: usedId1, completion: {
+            strings, error in if let strings = strings{
+                print(strings)
+                matches1.append(contentsOf: strings)
+                print(matches2)
 
-//        db.collection("users").document(usedId1).getDocument { (document, error) in
-//            if error != nil{
-//                return
-//            }
-//
-//            if let user = try? document?.data(){
-//                matches1 = user["matched"]! as? [String] ?? []
-//            } else {
-//            }
-//        }
-//
-//        db.collection("users").document(usedId2).getDocument { (document, error) in
-//            if error != nil{
-//                return
-//            }
-//            matches2 = document?.get("matched") as! [String]
-//
-//        }\
-        let docRef = db.collection("users").document(usedId1)
-
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                matches1 = document.get("matched") as! [String]
-                print("Document data:")
-            } else {
-                print("Document does not exist")
             }
-        }
-        let docRef2 = db.collection("users").document(usedId2)
-
-        docRef2.getDocument { (document, error) in
-            if let document = document, document.exists {
-                matches2 = document.get("matched") as! [String]
-                print("Document data:")
-            } else {
-                print("Document does not exist")
             }
-        }
+        )
+        
+        fetchUserMatches(fetchedUserId: usedId2, completion:
+                            {
+                                strings, error in if let strings = strings{
+                                    print(strings)
+                                    matches2.append(contentsOf: strings)
+                                    print(matches2)
+                                }
+                                })
+        
+        var count: Int = 0
+        print("Outside fetched")
         print(matches1)
         print(matches2)
-        var count: Int = 0
+
         for m in matches1{
             for v in matches2{
-                if (m.contains(v)){
+                if (m == v){
                     count = count + 1
                 }
             }
@@ -499,7 +498,7 @@ class FirestoreViewModel: NSObject, ObservableObject{
         }
         
         for (index, pic) in pics.enumerated(){
-            let data = pic.jpegData(compressionQuality: 1)!
+            let data = pic.jpegData(compressionQuality: 0.1)!
             let picRef = userRef.child("profile_pic_\(index).jpg")
             localPictures.append(LocalPicture())
             picRef.putData(data, metadata: nil) { (metadata, error) in

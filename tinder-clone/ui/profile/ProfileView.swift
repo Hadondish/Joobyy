@@ -60,6 +60,9 @@ struct ProfileView: View {
     @State private var userHobbies: String = ""
     @State private var userJob: String = ""
     @State private var userMB: String = ""
+    @State private var userFristQ: String = ""
+    @State private var userSecondQ: String = ""
+    @State private var userThirdQ: String = ""
     @State private var showError: Bool = false
     @State var showingDetail = false
 
@@ -104,28 +107,42 @@ struct ProfileView: View {
         VStack(alignment: .leading, spacing: 10) {
             
             VStack(alignment: .leading) {
-                HStack {
-                    Text(String(pictures.count))
-                        .font(.system(size: 70))
-                        .bold()
-                }
                 Text(userMB)
+                    .font(.largeTitle)
+                    .bold()
+                    .italic()
+                Text("Hobbies")
                     .font(.largeTitle)
                     .bold()
                     .italic()
                 Text(userHobbies)
                     .font(.largeTitle)
-                    .bold()
                     .italic()
                 Text(userJob)
                     .font(.largeTitle)
                     .bold()
                     .italic()
-                Text(userBirthdate)
+                Text("If you could compare yourself with any animal, which would it be and why? 🐶")
                     .font(.largeTitle)
                     .bold()
                     .italic()
-                Text(String(firestoreViewModel.fetchMutuals(fetchedUserId: CurrentUserId))).font(.title).fontWeight(.medium)
+                Text(userFristQ)
+                    .font(.largeTitle)
+                    .italic()
+                Text("How many square feet of pizza are eaten in the U.S. each year? 🍕")
+                    .font(.largeTitle)
+                    .bold()
+                    .italic()
+                Text(userSecondQ)
+                    .font(.largeTitle)
+                    .italic()
+                Text("Who would be your ideal coworker and why? 👨🏻‍💼")
+                    .font(.largeTitle)
+                    .bold()
+                    .italic()
+                Text(userThirdQ)
+                    .font(.largeTitle)
+                    .italic()
 //                forEach(pictures.count)
 //                Text("Talks about #swift, #swiftui, and #iosdevelopment")
 //                    .font(.caption)
@@ -243,6 +260,9 @@ struct ProfileView: View {
         userMB = user.mb
         userHobbies = user.hobbies
         initialOrientation = user.orientation
+        userFristQ = user.firstAnswer
+        userSecondQ = user.secondAnswer
+        userThirdQ = user.thirdAnswer
         self.initialBio = userBio
         self.initialOrientation = user.orientation
     }

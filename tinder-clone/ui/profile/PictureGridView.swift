@@ -43,7 +43,6 @@ struct PictureGridView: View {
         self.onAddImageClick = onAddImageClick
         self.onAddedImageClick = onAddedImageClick
     }
-    
     var body: some View {
         LazyVGrid(columns: columns, spacing: 0) {
             ReorderableForEach(droppedOutside: $droppedOutside, items: imageWrapper) { item in

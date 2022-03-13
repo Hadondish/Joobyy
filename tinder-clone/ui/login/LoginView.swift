@@ -11,7 +11,56 @@ import GoogleSignIn
 
 struct LoginView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
-    
+    struct PopUpWindow: View {
+        var title: String
+        var message: String
+        var buttonText: String
+        @Binding var show: Bool
+
+        var body: some View {
+            ZStack {
+                if show {
+                    // PopUp background color
+                    Color.black.opacity(show ? 0.3 : 0).edgesIgnoringSafeArea(.all)
+
+                    // PopUp Window
+                    VStack(alignment: .center, spacing: 0) {
+                        Text(title)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 100, alignment: .center)
+                            .font(Font.system(size: 23, weight: .semibold))
+                            .foregroundColor(Color.white)
+                            .background(LinearGradient(colors: AppColor.appColors, startPoint: .leading, endPoint: .trailing))
+
+                        Text(message)
+                            .multilineTextAlignment(.center)
+                            .font(Font.system(size: 16, weight: .semibold))
+                            .padding(EdgeInsets(top: 20, leading: 25, bottom: 20, trailing: 25))
+                            .foregroundColor(Color.white)
+
+                        Button(action: {
+                            // Dismiss the PopUp
+                            withAnimation(.linear(duration: 0.3)) {
+                                show = false
+                            }
+                        }, label: {
+                            Text(buttonText)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 54, alignment: .center)
+                                .foregroundColor(Color.white)
+                                .background(LinearGradient(colors: AppColor.appColors, startPoint: .leading, endPoint: .trailing))
+                                .font(Font.system(size: 23, weight: .semibold))
+                        }).buttonStyle(PlainButtonStyle())
+                    }
+                    .frame(maxWidth: 300)
+                    .border(Color.white, width: 2)
+                    .background(LinearGradient(colors: AppColor.appColors, startPoint: .leading, endPoint: .trailing))
+                }
+            }
+        }
+    }
+    @State private var showPopUp: Bool = true
+
     var body: some View {
         VStack{
             Spacer()
@@ -39,6 +88,8 @@ struct LoginView: View {
         }
         .frame(maxWidth: .infinity)
         .background(LinearGradient(colors: AppColor.appColors, startPoint: .leading, endPoint: .trailing)).ignoresSafeArea()
+        PopUpWindow(title: "Welcome", message: "One Job. Many Personalities. One Match", buttonText: "OK", show: $showPopUp)
+
     }
     
 }
