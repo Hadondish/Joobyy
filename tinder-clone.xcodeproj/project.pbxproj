@@ -90,7 +90,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4F0899362780939A00A3BE95 /* Tinder Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tinder Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F0899362780939A00A3BE95 /* Joobie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Joobie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F0899392780939A00A3BE95 /* tinder_cloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tinder_cloneApp.swift; sourceTree = "<group>"; };
 		4F08993B2780939A00A3BE95 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4F08993D2780939B00A3BE95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -150,6 +150,7 @@
 		4FEB427B278DAD97004B06AF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		5C29979727D0B6A50047B79F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5C326ADB27C7934F001CA626 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5C3A4A3427DE0AA400A7A804 /* tinder-cloneDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "tinder-cloneDebug.entitlements"; sourceTree = "<group>"; };
 		65EB636327C8C3E700D9B466 /* Prescreening Questions -> Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Prescreening Questions -> Launch Screen.storyboard"; sourceTree = "<group>"; };
 		65EB636727CA1FFB00D9B466 /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		65EB636927CA262300D9B466 /* Prescreening(Onboard Questions) */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Prescreening(Onboard Questions)"; sourceTree = "<group>"; };
@@ -199,7 +200,7 @@
 		4F0899372780939A00A3BE95 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4F0899362780939A00A3BE95 /* Tinder Clone.app */,
+				4F0899362780939A00A3BE95 /* Joobie.app */,
 				4F0899462780939B00A3BE95 /* tinder-cloneTests.xctest */,
 				4F0899502780939B00A3BE95 /* tinder-cloneUITests.xctest */,
 			);
@@ -209,6 +210,7 @@
 		4F0899382780939A00A3BE95 /* tinder-clone */ = {
 			isa = PBXGroup;
 			children = (
+				5C3A4A3427DE0AA400A7A804 /* tinder-cloneDebug.entitlements */,
 				65EB636927CA262300D9B466 /* Prescreening(Onboard Questions) */,
 				5C326ADB27C7934F001CA626 /* GoogleService-Info.plist */,
 				4FEB4274278DA174004B06AF /* domain */,
@@ -413,7 +415,7 @@
 				4F31455327837E5C008D5D4A /* FirebaseFirestoreSwift-Beta */,
 			);
 			productName = "tinder-clone";
-			productReference = 4F0899362780939A00A3BE95 /* Tinder Clone.app */;
+			productReference = 4F0899362780939A00A3BE95 /* Joobie.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4F0899452780939B00A3BE95 /* tinder-cloneTests */ = {
@@ -755,14 +757,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "tinder-clone/tinder-cloneDebug.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tinder-clone/Preview Content\"";
-				DEVELOPMENT_TEAM = 9JNXNP2N3U;
+				DEVELOPMENT_TEAM = S4EUW6E987;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "tinder-clone/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Joobie💼";
+				INFOPLIST_KEY_CFBundleDisplayName = Joobie;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access is required to use this app feature.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -775,8 +779,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kyletran.TinderClone;
-				PRODUCT_NAME = "Tinder Clone";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyletran.Joobie;
+				PRODUCT_NAME = Joobie;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -791,11 +795,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tinder-clone/Preview Content\"";
-				DEVELOPMENT_TEAM = 9JNXNP2N3U;
+				DEVELOPMENT_TEAM = S4EUW6E987;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "tinder-clone/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Joobie💼";
+				INFOPLIST_KEY_CFBundleDisplayName = Joobie;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access is required to use this app feature.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -808,8 +813,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kyletran.TinderClone;
-				PRODUCT_NAME = "Tinder Clone";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyletran.Joobie;
+				PRODUCT_NAME = Joobie;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -849,7 +854,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9JNXNP2N3U;
+				DEVELOPMENT_TEAM = S4EUW6E987;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -874,7 +879,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9JNXNP2N3U;
+				DEVELOPMENT_TEAM = S4EUW6E987;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -898,7 +903,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9JNXNP2N3U;
+				DEVELOPMENT_TEAM = S4EUW6E987;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
