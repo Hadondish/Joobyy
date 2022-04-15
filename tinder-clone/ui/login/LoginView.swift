@@ -88,7 +88,7 @@ struct LoginView: View {
         }
         .frame(maxWidth: .infinity)
         .background(LinearGradient(colors: AppColor.appColors, startPoint: .leading, endPoint: .trailing)).ignoresSafeArea()
-        PopUpWindow(title: "Welcome", message: "One Job. Many Personalities. One Match", buttonText: "OK", show: $showPopUp)
+//        PopUpWindow(title: "Welcome", message: "One Job. Many Personalities. One Match", buttonText: "OK", show: $showPopUp)
 
     }
     
