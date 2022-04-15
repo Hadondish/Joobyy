@@ -62,7 +62,7 @@ class FirestoreViewModel: NSObject, ObservableObject{
                 return
             }
             var matchList: [MatchModel] = []
-            var count = 1
+            var count = 0
             let maxCount = documentSnapshot.documents.count
             var hasFailed = false
             for document in documentSnapshot.documents{

@@ -136,17 +136,35 @@ struct ProfileView: View {
 //                    .foregroundColor(.gray)
             }
             Spacer()
-            Spacer()
             VStack(alignment: .leading) {
                 Text("Hobbies")
                     .bold()
                     .italic()
                 Text(userHobbies)
                     .italic()
-                Text("")
+               
+            }
+            VStack(spacing: 12){
+                
+          
+                Text("Twitter")
+                    .font(.title)
+                    .padding(.top,10)
+                
+                Text("UI Designer")
+                    .foregroundColor(Color("Color"))
+                
+                Text("1 Year")
                     .font(.caption)
                     .foregroundColor(.gray)
             }
+            .padding(.vertical)
+            // half screen - spacing - two side paddings = 60
+            .frame(width: (200) / 2)
+            .background(Color("Color1"))
+            .cornerRadius(15)
+            .shadow(color: Color.black.opacity(0.1), radius: 5, x: 8, y: 8)
+            .shadow(color: Color.white.opacity(0.5), radius: 5, x: -8, y: -8)
 
             ZStack(alignment: .bottom){
                 if (loading){
