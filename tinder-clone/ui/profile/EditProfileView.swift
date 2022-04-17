@@ -22,6 +22,7 @@ struct EditProfileView: View {
     @State private var userBirthdate: String = ""
     @State private var userBio: String = ""
     @State private var myerText: String = ""
+    @State private var portfolio: String = ""
 
     
     
@@ -62,6 +63,17 @@ struct EditProfileView: View {
                 }
             }
             
+            
+            
+            //Portfolio Link
+            ProfileSection("Portfolio"){
+                ProfileRow{
+                    ProfileTextEditor($portfolio)
+                }
+            }
+            
+            
+            //Profile Type
             ProfileSection("gender"){
                 ProfileRow{
                     Picker("", selection: $genderSelection) {
@@ -181,6 +193,7 @@ struct EditProfileView: View {
     
     private func populateData(_ user: FirestoreUser){
         userBio = user.bio
+        portfolio = user.portfolio
         userName = user.name
         userBirthdate = user.birthDate.getFormattedDate(format: dateFormat)
 

@@ -20,6 +20,7 @@ public struct FirestoreUser: Codable {
     let mb: String
     let hobbies: String
     let job: String
+    let portfolio: String
     
     let firstAnswer: String
     let secondAnswer: String
@@ -34,6 +35,7 @@ public struct FirestoreUser: Codable {
         case name
         case birthDate
         case bio
+        case portfolio
         case isMale = "male"
         case orientation
         case liked
