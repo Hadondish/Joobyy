@@ -50,6 +50,7 @@ struct ProfileView: View {
     @State private var initialOrientation: Orientation = .both
     @State private var loading = true
 
+    @State private var portfolio: String = ""
     @State private var isLoading: Bool = false
     @State private var pictures: [UIImage] = []
     @State private var image = UIImage()
@@ -142,6 +143,7 @@ struct ProfileView: View {
                     .italic()
                 Text(userHobbies)
                     .italic()
+                Text(portfolio)
                
             }
             VStack(spacing: 12){
@@ -262,6 +264,7 @@ struct ProfileView: View {
     
     private func populateData(_ user: FirestoreUser){
         userBio = user.bio
+        portfolio = user.portfolio
         userName = user.name
         userBirthdate = user.birthDate.getFormattedDate(format: dateFormat)
         userJob = user.job
