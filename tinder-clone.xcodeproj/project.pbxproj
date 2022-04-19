@@ -66,7 +66,7 @@
 		4FEB427A278DA96D004B06AF /* TinderCloneCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FEB4278278DA96D004B06AF /* TinderCloneCoreData.xcdatamodeld */; };
 		4FEB427C278DAD97004B06AF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEB427B278DAD97004B06AF /* Persistence.swift */; };
 		5C29979827D0B6A50047B79F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29979727D0B6A50047B79F /* ProfileView.swift */; };
-		5C326ADC27C7934F001CA626 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C326ADB27C7934F001CA626 /* GoogleService-Info.plist */; };
+		5C3E2029280E9131004E310E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C3E2028280E9131004E310E /* GoogleService-Info.plist */; };
 		65EB636427C8C3E700D9B466 /* Prescreening Questions -> Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65EB636327C8C3E700D9B466 /* Prescreening Questions -> Launch Screen.storyboard */; };
 		65EB636827CA1FFB00D9B466 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65EB636727CA1FFB00D9B466 /* View.xib */; };
 		65EB636A27CA262300D9B466 /* Prescreening(Onboard Questions) in Resources */ = {isa = PBXBuildFile; fileRef = 65EB636927CA262300D9B466 /* Prescreening(Onboard Questions) */; };
@@ -103,7 +103,6 @@
 		4F089963278093E200A3BE95 /* AuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		4F089964278093E200A3BE95 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4F089965278093E200A3BE95 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		4F0899752780963500A3BE95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4F0899782780B53900A3BE95 /* GradientOutlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientOutlineButton.swift; sourceTree = "<group>"; };
 		4F08997A2780B9AC00A3BE95 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4F08997C2780E16D00A3BE95 /* SwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
@@ -149,8 +148,9 @@
 		4FEB4279278DA96D004B06AF /* TinderCloneCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TinderCloneCoreData.xcdatamodel; sourceTree = "<group>"; };
 		4FEB427B278DAD97004B06AF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		5C29979727D0B6A50047B79F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		5C326ADB27C7934F001CA626 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5C3A4A3427DE0AA400A7A804 /* tinder-cloneDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "tinder-cloneDebug.entitlements"; sourceTree = "<group>"; };
+		5C3E2028280E9131004E310E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5C3E202E280E9362004E310E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65EB636327C8C3E700D9B466 /* Prescreening Questions -> Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Prescreening Questions -> Launch Screen.storyboard"; sourceTree = "<group>"; };
 		65EB636727CA1FFB00D9B466 /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		65EB636927CA262300D9B466 /* Prescreening(Onboard Questions) */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Prescreening(Onboard Questions)"; sourceTree = "<group>"; };
@@ -210,15 +210,15 @@
 		4F0899382780939A00A3BE95 /* tinder-clone */ = {
 			isa = PBXGroup;
 			children = (
+				5C3E2028280E9131004E310E /* GoogleService-Info.plist */,
 				5C3A4A3427DE0AA400A7A804 /* tinder-cloneDebug.entitlements */,
 				65EB636927CA262300D9B466 /* Prescreening(Onboard Questions) */,
-				5C326ADB27C7934F001CA626 /* GoogleService-Info.plist */,
 				4FEB4274278DA174004B06AF /* domain */,
 				4FEB426D278D9F6A004B06AF /* ui */,
-				4F0899752780963500A3BE95 /* Info.plist */,
 				4F08993D2780939B00A3BE95 /* Assets.xcassets */,
 				4F08993F2780939B00A3BE95 /* Preview Content */,
 				4FBBA11D27977419003BC15D /* Localizable.strings */,
+				5C3E202E280E9362004E310E /* Info.plist */,
 			);
 			path = "tinder-clone";
 			sourceTree = "<group>";
@@ -508,12 +508,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F0899412780939B00A3BE95 /* Preview Assets.xcassets in Resources */,
-				5C326ADC27C7934F001CA626 /* GoogleService-Info.plist in Resources */,
 				65EB636A27CA262300D9B466 /* Prescreening(Onboard Questions) in Resources */,
 				65EB636427C8C3E700D9B466 /* Prescreening Questions -> Launch Screen.storyboard in Resources */,
 				4FBBA11B27977419003BC15D /* Localizable.strings in Resources */,
 				65EB636827CA1FFB00D9B466 /* View.xib in Resources */,
 				4F08993E2780939B00A3BE95 /* Assets.xcassets in Resources */,
+				5C3E2029280E9131004E310E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

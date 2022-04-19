@@ -143,30 +143,18 @@ struct ProfileView: View {
                     .italic()
                 Text(userHobbies)
                     .italic()
-                Text(portfolio)
+                Text(portfolio).bold().italic()
+                
+
+                // Set how links should appear: blue and underlined
+//                self.textView.linkTextAttributes = [
+//                    .foregroundColor: UIColor.blue,
+//                    .underlineStyle: NSUnderlineStyle.single.rawValue
+//                ]
+
                
             }
-            VStack(spacing: 12){
-                
-          
-                Text("Twitter")
-                    .font(.title)
-                    .padding(.top,10)
-                
-                Text("UI Designer")
-                    .foregroundColor(Color("Color"))
-                
-                Text("1 Year")
-                    .font(.caption)
-                    .foregroundColor(.gray)
-            }
-            .padding(.vertical)
-            // half screen - spacing - two side paddings = 60
-            .frame(width: (200) / 2)
-            .background(Color("Color1"))
-            .cornerRadius(15)
-            .shadow(color: Color.black.opacity(0.1), radius: 5, x: 8, y: 8)
-            .shadow(color: Color.white.opacity(0.5), radius: 5, x: -8, y: -8)
+           
 
             ZStack(alignment: .bottom){
                 if (loading){
@@ -208,16 +196,16 @@ struct ProfileView: View {
             .shadow(radius: 10)
         
         
-            makeButtonView()
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack {
-                ForEach(items) { item in
-                    makeCell(for: item)
-                }
-                }
-            }
-            .frame(height: 100)
+//            makeButtonView()
+//
+//            ScrollView(.horizontal, showsIndicators: false) {
+//                LazyHStack {
+//                ForEach(items) { item in
+//                    makeCell(for: item)
+//                }
+//                }
+//            }
+//            .frame(height: 100)
             
         }.onAppear(perform: performOnAppear)
         

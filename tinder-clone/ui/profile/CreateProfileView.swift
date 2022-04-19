@@ -29,7 +29,7 @@ struct CreateProfileView: View {
 
     @State private var datePickerSelection: Date = Date()
     @State private var genderSelection: String = ""
-    @State private var orientationSelection: Orientation? = nil
+    @State private var orientationSelection: Orientation = Orientation.both
     @State private var pictures: [UIImage] = [UIImage()]
     @State private var image = UIImage()
     @State private var selectedContentType: UIImagePickerController.SourceType = .photoLibrary
@@ -138,15 +138,15 @@ struct CreateProfileView: View {
                     }
                 }
                 
-                ProfileSection("i-am-interested-in"){
-                    ProfileRow{
-                        Picker("", selection: $orientationSelection) {
-                            ForEach(Orientation.allCases, id: \.self) {
-                                Text(LocalizedStringKey($0.rawValue)).tag($0 as Orientation?)
-                            }
-                        }.pickerStyle(.segmented).frame(maxWidth: .infinity)
-                    }
-                }
+//                ProfileSection("i-am-interested-in"){
+//                    ProfileRow{
+//                        Picker("", selection: $orientationSelection) {
+//                            ForEach(Orientation.allCases, id: \.self) {
+//                                Text(LocalizedStringKey($0.rawValue)).tag($0 as Orientation?)
+//                            }
+//                        }.pickerStyle(.segmented).frame(maxWidth: .infinity)
+//                    }
+//                }
                 Text("You need at least 2 photos, characters only name (no spaces or symbols), and About You should be more than 30 characters 😆")
                 Button{
                     submitInformation()
@@ -201,7 +201,12 @@ struct CreateProfileView: View {
     
     private func submitInformation(){
         showLoading = true
-        firestoreViewModel.createUserProfile(name: userName, birhtDate: datePickerSelection, bio: userBio, isMale: Constants.genderOptions.firstIndex(of: genderSelection) == 0, orientation: .both, pictures: pictures, mb: myerType, portfolio: portfolio, job: desiredPosition, hobbies: hobbies, firstAnswer: firstAnswer, secondAnswer: secondAnswer, thirdAnswer: thirdAnswer){ result in
+        if (Constants.genderOptions.firstIndex(of: genderSelection) == 0) {
+            orientationSelection = Orientation.women
+        } else {
+            orientationSelection = Orientation.men
+        }
+        firestoreViewModel.createUserProfile(name: userName, birhtDate: datePickerSelection, bio: userBio, isMale: Constants.genderOptions.firstIndex(of: genderSelection) == 0, orientation: orientationSelection, pictures: pictures, mb: myerType, portfolio: portfolio, job: desiredPosition, hobbies: hobbies, firstAnswer: firstAnswer, secondAnswer: secondAnswer, thirdAnswer: thirdAnswer){ result in
             self.showLoading = false
             switch result{
             case .success():

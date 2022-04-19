@@ -84,15 +84,15 @@ struct EditProfileView: View {
                 }
             }
             
-            ProfileSection("i-am-interested-in"){
-                ProfileRow{
-                    Picker("", selection: $orientationSelection) {
-                        ForEach(Orientation.allCases, id: \.self) {
-                            Text(LocalizedStringKey($0.rawValue)).tag($0 as Orientation?)
-                        }
-                    }.pickerStyle(.segmented).frame(maxWidth: .infinity)
-                }
-            }
+//            ProfileSection("i-am-interested-in"){
+//                ProfileRow{
+//                    Picker("", selection: $orientationSelection) {
+//                        ForEach(Orientation.allCases, id: \.self) {
+//                            Text(LocalizedStringKey($0.rawValue)).tag($0 as Orientation?)
+//                        }
+//                    }.pickerStyle(.segmented).frame(maxWidth: .infinity)
+//                }
+//            }
             
             ProfileSection("personal-info"){
                 ProfileRow{

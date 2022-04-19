@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>39659342369-9e0jp7ldrlhpe1uj1ljcvp3kdc9oua7p.apps.googleusercontent.com</string>
+	<string>39659342369-pbuhiobfuojg7r1paekf6sh6m66gqs2l.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.39659342369-9e0jp7ldrlhpe1uj1ljcvp3kdc9oua7p</string>
+	<string>com.googleusercontent.apps.39659342369-pbuhiobfuojg7r1paekf6sh6m66gqs2l</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBsZlh2Xdyl8Pwf1M9AHC7qNOD3YRf5iOk</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.kyletran.TinderClone</string>
+	<string>com.kyletran.Joobie</string>
 	<key>PROJECT_ID</key>
 	<string>jooby-b9791</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:39659342369:ios:d80205c621d79db4e47160</string>
+	<string>1:39659342369:ios:a3215e5a376262ace47160</string>
 </dict>
 </plist>
