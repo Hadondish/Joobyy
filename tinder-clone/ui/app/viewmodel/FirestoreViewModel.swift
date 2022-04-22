@@ -224,7 +224,7 @@ class FirestoreViewModel: NSObject, ObservableObject{
             var profilePictures: [UIImage] = []
             
             
-            var count = 1
+            var count = 0
             var hasFailed = false
             for picRef in result.items{
                 picRef.getData(maxSize: self.IMG_MAX_SIZE) { data, error in
@@ -256,6 +256,7 @@ class FirestoreViewModel: NSObject, ObservableObject{
             if let localPictures = try? context.fetch(fetchRequest){
                 let imageData = localPictures.compactMap{ $0.picture }
                 let images: [UIImage] = imageData.compactMap{ UIImage(data: $0) }
+                print(images.count)
                 DispatchQueue.main.async {
                     onCompletion(.success(images))
                     self.checkMetadata(localPictures, onUpdate)
@@ -277,7 +278,7 @@ class FirestoreViewModel: NSObject, ObservableObject{
                 return
             }
             var updatedLocalPictures: [LocalPicture] = []
-            var count = 1
+            var count = 0
             var hasChanged = false
             for (index, picRef) in result.items.enumerated(){
                 picRef.getMetadata { metadata, error in

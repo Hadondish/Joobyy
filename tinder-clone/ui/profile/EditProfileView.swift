@@ -47,7 +47,8 @@ struct EditProfileView: View {
     @State private var previousPicCount: Int = 0
     @State private var genderSelection: String = ""
     @State private var orientationSelection: Orientation? = nil
-    
+    @State private var lenPic: Int = 0;
+
     var body: some View {
         ProfileForm{
             PictureGridView(pictures: $pictures, picturesChanged: $picturesModified, droppedOutside: $droppedOutside, onAddedImageClick: { index in
@@ -56,7 +57,6 @@ struct EditProfileView: View {
                 }, onAddImageClick: {
                     showContentTypeSheet.toggle()
                 }).padding(.leading).padding(.trailing)
-            
             ProfileSection("about-you"){
                 ProfileRow{
                     ProfileTextEditor($userBio)

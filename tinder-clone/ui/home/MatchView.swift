@@ -40,7 +40,17 @@ struct MatchView: View {
             }).padding(12)
             Spacer()
         }
-        .alert("You've matched!", isPresented: $showConfirmation, actions: {}, message: {Text("You've matched")})
+//        .alert("You've matched!", isPresented: $showConfirmation, actions: {}, message: {Text("You've matched")})
+        .alert(isPresented:$showConfirmation) {
+                  Alert(
+                      title: Text("You have matched!"),
+                      message: Text("A message has been sent to the matchee!"),
+                      primaryButton: Alert.Button.default(Text("Great!"), action: onKeepSwipingClicked),
+                      secondaryButton: Alert.Button.cancel(Text("Cancel"), action: {
+                            print("Cancel")
+                        })
+                  )
+              }
         .padding()
         .background(LinearGradient(colors: AppColor.appColors.map{$0.opacity(0.8)}, startPoint: .leading, endPoint: .trailing))
     }
@@ -48,6 +58,11 @@ struct MatchView: View {
 //                   sendMessage()
 //               }
     func sendMessage(){
+        firestoreViewModel.sendMessage(matchId: userId > matchID ? userId + matchID : matchID + userId, message: typingMessage)
+        showConfirmation = true;
+       
+    }
+    func keepSwipting(){
         firestoreViewModel.sendMessage(matchId: userId > matchID ? userId + matchID : matchID + userId, message: typingMessage)
         showConfirmation = true;
        
