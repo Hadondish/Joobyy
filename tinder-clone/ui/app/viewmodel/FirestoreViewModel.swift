@@ -144,10 +144,13 @@ class FirestoreViewModel: NSObject, ObservableObject{
     }
     
     private func fetchProfiles(isUserMale: Bool, userOrientation: Orientation, excludedUsers: [String], onCompletion: @escaping(Result<[UserProfile], DomainError>)->()){
-        var searchQuery = db.collection("users").whereField(FirestoreUser.CodingKeys.orientation.rawValue, isNotEqualTo: isUserMale ? Orientation.women.rawValue : Orientation.men.rawValue)
-        if userOrientation != .both{
-            searchQuery = searchQuery.whereField(FirestoreUser.CodingKeys.isMale.rawValue, isEqualTo: userOrientation == .men)
-        }
+        let searchQuery = db.collection("users").whereField("male", isEqualTo: isUserMale ? false : true)
+        //users that their preference opposite of what there gender is
+        
+        
+//        if userOrientation != .both{
+//            searchQuery = searchQuery.whereField(FirestoreUser.CodingKeys.isMale.rawValue, isEqualTo: userOrientation == .men)
+//        }
 
         searchQuery.getDocuments(completion: { (snapshot, err) in
             guard let documentSnapshot = snapshot, err == nil else {

@@ -14,6 +14,7 @@ struct MatchView: View {
     @State private var typingMessage: String = "Nice to meet you. Would you be interested in an interview?🗣"
     let onSendMessageButtonClicked: () -> ()
     let onKeepSwipingClicked: () -> ()
+    @State var showConfirmation: Bool = false;
     private var userId: String {
         Auth.auth().currentUser?.uid ?? ""
         
@@ -39,6 +40,7 @@ struct MatchView: View {
             }).padding(12)
             Spacer()
         }
+        .alert("You've matched!", isPresented: $showConfirmation, actions: {}, message: {Text("You've matched")})
         .padding()
         .background(LinearGradient(colors: AppColor.appColors.map{$0.opacity(0.8)}, startPoint: .leading, endPoint: .trailing))
     }
@@ -47,6 +49,7 @@ struct MatchView: View {
 //               }
     func sendMessage(){
         firestoreViewModel.sendMessage(matchId: userId > matchID ? userId + matchID : matchID + userId, message: typingMessage)
+        showConfirmation = true;
        
     }
 }
