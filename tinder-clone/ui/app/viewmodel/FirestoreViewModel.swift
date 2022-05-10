@@ -67,7 +67,9 @@ class FirestoreViewModel: NSObject, ObservableObject{
             var hasFailed = false
             for document in documentSnapshot.documents{
                 if hasFailed{ break }
-                let match: FirestoreMatch = try! document.data(as: FirestoreMatch.self)!
+                //removed try! optional value fore firestore matches; we are alaways assuming that matches would happen optional value at the end of doc data
+                let match: FirestoreMatch = try!
+                document.data(as: FirestoreMatch.self)
                 let matchId = match.usersMatched.filter{$0 != self.userId!}.first!
                 self.fetchUserProfile(fetchedUserId: matchId, onCompletion: { result in
                     switch result{

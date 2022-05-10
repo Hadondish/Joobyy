@@ -67,6 +67,7 @@
 		4FEB427C278DAD97004B06AF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEB427B278DAD97004B06AF /* Persistence.swift */; };
 		5C29979827D0B6A50047B79F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29979727D0B6A50047B79F /* ProfileView.swift */; };
 		5C3E2029280E9131004E310E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C3E2028280E9131004E310E /* GoogleService-Info.plist */; };
+		5CBE3F332820BDFD00FAB3CA /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 5CBE3F322820BDFD00FAB3CA /* FirebaseMessaging */; };
 		65EB636427C8C3E700D9B466 /* Prescreening Questions -> Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65EB636327C8C3E700D9B466 /* Prescreening Questions -> Launch Screen.storyboard */; };
 		65EB636827CA1FFB00D9B466 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65EB636727CA1FFB00D9B466 /* View.xib */; };
 		65EB636A27CA262300D9B466 /* Prescreening(Onboard Questions) in Resources */ = {isa = PBXBuildFile; fileRef = 65EB636927CA262300D9B466 /* Prescreening(Onboard Questions) */; };
@@ -163,6 +164,7 @@
 			files = (
 				4F08996D278094E600A3BE95 /* FirebaseAuth in Frameworks */,
 				4F089974278095B300A3BE95 /* GoogleSignIn in Frameworks */,
+				5CBE3F332820BDFD00FAB3CA /* FirebaseMessaging in Frameworks */,
 				4F31455427837E5C008D5D4A /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				4F08996F278094E600A3BE95 /* FirebaseFirestore in Frameworks */,
 				4F089971278094E600A3BE95 /* FirebaseStorage in Frameworks */,
@@ -193,7 +195,7 @@
 				4F0899492780939B00A3BE95 /* tinder-cloneTests */,
 				4F0899532780939B00A3BE95 /* tinder-cloneUITests */,
 				4F0899372780939A00A3BE95 /* Products */,
-				4F31455227837E03008D5D4A /* Frameworks */,
+				5A7BD5303BC729DEE939143B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -255,13 +257,6 @@
 				4F0C781527A5882500F0B371 /* CameraService.swift */,
 			);
 			path = camera;
-			sourceTree = "<group>";
-		};
-		4F31455227837E03008D5D4A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		4FB9615D279EED9E00CF0FEF /* firestore */ = {
@@ -391,6 +386,13 @@
 			path = viewmodel;
 			sourceTree = "<group>";
 		};
+		5A7BD5303BC729DEE939143B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -413,6 +415,7 @@
 				4F089970278094E600A3BE95 /* FirebaseStorage */,
 				4F089973278095B300A3BE95 /* GoogleSignIn */,
 				4F31455327837E5C008D5D4A /* FirebaseFirestoreSwift-Beta */,
+				5CBE3F322820BDFD00FAB3CA /* FirebaseMessaging */,
 			);
 			productName = "tinder-clone";
 			productReference = 4F0899362780939A00A3BE95 /* Joobie.app */;
@@ -966,8 +969,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.11.0;
 			};
 		};
 		4F089972278095B300A3BE95 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
@@ -1005,6 +1008,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4F08996B278094E600A3BE95 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseFirestoreSwift-Beta";
+		};
+		5CBE3F322820BDFD00FAB3CA /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F08996B278094E600A3BE95 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 
