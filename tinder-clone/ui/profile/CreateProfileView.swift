@@ -68,23 +68,23 @@ struct CreateProfileView: View {
                     ProfileRow{
                         TextField("enter-your-name", text: $userName)
                     }
-                    ProfileRow{
-                        DatePicker(selection: $datePickerSelection, in: partialRange, displayedComponents: .date, label: {Text("pick-your-birthday")})
-                    }
+//                    ProfileRow{
+//                        DatePicker(selection: $datePickerSelection, in: partialRange, displayedComponents: .date, label: {Text("pick-your-birthday")})
+//                    }
                     //Desired Position
                     ProfileRow {
                         TextField("Enter Desired Job Position", text: $desiredPosition)
                     }
                   
-                    ProfileRow{
-                        Text("Find out your Myers Briggs Personality⤵️")
-                            .scaledToFit()
-                    }
-                    //Personality Test
-                    ProfileRow {
-                        Link("Personality Test", destination: URL(string: "https://bit.ly/MyerBriggsPersonality")!)
-                       
-                    }
+//                    ProfileRow{
+//                        Text("Find out your Myers Briggs Personality⤵️")
+//                            .scaledToFit()
+//                    }
+//                    //Personality Test
+//                    ProfileRow {
+//                        Link("Personality Test", destination: URL(string: "https://bit.ly/MyerBriggsPersonality")!)
+//
+//                    }
                     //Myer Briggs
                     ProfileRow {
                         TextField("Enter Myers Briggs Personality Type", text: $myerType)
@@ -195,7 +195,7 @@ struct CreateProfileView: View {
     
     private func isInformationValid() -> Bool{
         return userName.count < 2 || userName.count > 30 ||
-        !CharacterSet.letters.isSuperset(of: CharacterSet(charactersIn: userName))  || genderSelection.isEmpty || orientationSelection == nil
+         genderSelection.isEmpty || orientationSelection == nil
         || pictures.count < 2
     }
     

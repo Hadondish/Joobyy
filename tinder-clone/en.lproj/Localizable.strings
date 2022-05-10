@@ -38,7 +38,7 @@
 "camera" = "Camera";
 "pic-delete-error" = "Delete error";
 "pic-delete-error-msg" = "You must have at least two pictures in your profile.";
-"no-more-profiles" = "No more available profiles. 💼";
+"no-more-profiles" = "Fetching more Profiles...";
 "its-a-match-text" = "You and %@ have liked each other.";
 "messages" = "Messages";
 "send-message" = "Send message";

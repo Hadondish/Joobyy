@@ -58,6 +58,8 @@ struct SwipeCardView: View {
                     HStack(alignment: .firstTextBaseline){
                         Text(model.name).font(.largeTitle).fontWeight(.semibold)
                         Text(String(firestoreViewModel.fetchMutuals(fetchedUserId: CurrentUserId, fetchedUserId2: model.userId))).font(.title).fontWeight(.medium)
+                        Text("Mutuals")
+                        Spacer()
                         Button(action: {
                                     self.showingDetail.toggle()
                                 }) {
