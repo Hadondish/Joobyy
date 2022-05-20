@@ -67,6 +67,8 @@
 		4FEB427C278DAD97004B06AF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEB427B278DAD97004B06AF /* Persistence.swift */; };
 		5C29979827D0B6A50047B79F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29979727D0B6A50047B79F /* ProfileView.swift */; };
 		5C3E2029280E9131004E310E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C3E2028280E9131004E310E /* GoogleService-Info.plist */; };
+		5CA7620D2836C5AD00EB0BAE /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7620C2836C5AD00EB0BAE /* PushNotificationManager.swift */; };
+		5CA762112836C66E00EB0BAE /* PushNotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA762102836C66E00EB0BAE /* PushNotificationSender.swift */; };
 		5CBE3F332820BDFD00FAB3CA /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 5CBE3F322820BDFD00FAB3CA /* FirebaseMessaging */; };
 		65EB636427C8C3E700D9B466 /* Prescreening Questions -> Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65EB636327C8C3E700D9B466 /* Prescreening Questions -> Launch Screen.storyboard */; };
 		65EB636827CA1FFB00D9B466 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65EB636727CA1FFB00D9B466 /* View.xib */; };
@@ -152,6 +154,8 @@
 		5C3A4A3427DE0AA400A7A804 /* tinder-cloneDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "tinder-cloneDebug.entitlements"; sourceTree = "<group>"; };
 		5C3E2028280E9131004E310E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5C3E202E280E9362004E310E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CA7620C2836C5AD00EB0BAE /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
+		5CA762102836C66E00EB0BAE /* PushNotificationSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushNotificationSender.swift; path = "../../../../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/PushNotifications 2/PushNotificationSender.swift"; sourceTree = "<group>"; };
 		65EB636327C8C3E700D9B466 /* Prescreening Questions -> Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Prescreening Questions -> Launch Screen.storyboard"; sourceTree = "<group>"; };
 		65EB636727CA1FFB00D9B466 /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		65EB636927CA262300D9B466 /* Prescreening(Onboard Questions) */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Prescreening(Onboard Questions)"; sourceTree = "<group>"; };
@@ -328,8 +332,8 @@
 			children = (
 				4F31454027825B38008D5D4A /* MatchListView.swift */,
 				4FB9614D279DFD4500CF0FEF /* MatchItemView.swift */,
-				4FB96151279EB95700CF0FEF /* ChatView.swift */,
 				4FB96155279ECE4A00CF0FEF /* ContentMessageView.swift */,
+				4FB96151279EB95700CF0FEF /* ChatView.swift */,
 				4FB96157279ECE5500CF0FEF /* MessageView.swift */,
 			);
 			path = matches;
@@ -359,6 +363,7 @@
 			children = (
 				4FEB4277278DA6A5004B06AF /* viewmodel */,
 				4F0899392780939A00A3BE95 /* tinder_cloneApp.swift */,
+				5CA7620C2836C5AD00EB0BAE /* PushNotificationManager.swift */,
 				4F08993B2780939A00A3BE95 /* ContentView.swift */,
 			);
 			path = app;
@@ -381,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				4F089963278093E200A3BE95 /* AuthViewModel.swift */,
+				5CA762102836C66E00EB0BAE /* PushNotificationSender.swift */,
 				4FEB4275278DA433004B06AF /* FirestoreViewModel.swift */,
 			);
 			path = viewmodel;
@@ -541,6 +547,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CA7620D2836C5AD00EB0BAE /* PushNotificationManager.swift in Sources */,
 				4FB96156279ECE4A00CF0FEF /* ContentMessageView.swift in Sources */,
 				4FBA8DAF278F02950093DC26 /* ProfileRow.swift in Sources */,
 				4F0899792780B53900A3BE95 /* GradientOutlineButton.swift in Sources */,
@@ -583,6 +590,7 @@
 				4FEB427C278DAD97004B06AF /* Persistence.swift in Sources */,
 				5C29979827D0B6A50047B79F /* ProfileView.swift in Sources */,
 				4F31454727830F2D008D5D4A /* AddImageView.swift in Sources */,
+				5CA762112836C66E00EB0BAE /* PushNotificationSender.swift in Sources */,
 				4FEB427A278DA96D004B06AF /* TinderCloneCoreData.xcdatamodeld in Sources */,
 				4F08997B2780B9AC00A3BE95 /* Extensions.swift in Sources */,
 				4F08997F2780E34900A3BE95 /* SwipeCardView.swift in Sources */,

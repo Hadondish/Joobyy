@@ -24,10 +24,11 @@ class FirestoreViewModel: NSObject, ObservableObject{
     private let storage = Storage.storage().reference()
     private var userId: String? {
         Auth.auth().currentUser?.uid
-        
     }
     
     func sendMessage(matchId: String, message: String){
+        let sender = PushNotificationSender()
+        sender.sendPushNotification(to: "c4bzOI6B40VajrAHhTSDY6:APA91bGMOt8OFvxY2W5UJKmyEB9_mIgR0pQ7-LaBbfJPCD07IbkPd4yqHVotdkAHi9crF50XmTE4edWZHTgbarc1aRLVeUKlYAy6QQ1ckVSy6j4ps6TrnXaG-hLXZV2vLlCbXQU89dP7", title: "Tester", body: "Sent you a message")
         db.collection("matches").document(matchId).collection("messages")
             .addDocument(data:
                             ["message" : message,

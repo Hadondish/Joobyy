@@ -33,7 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
       FirebaseApp.configure()
+    
     FirebaseConfiguration.shared.setLoggerLevel(.min)
+
         // 1
         UNUserNotificationCenter.current().delegate = self
         // 2
@@ -75,7 +77,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
              center.add(request) { (error) in
                  //error checker
              }
-             
+        let pushManager = PushNotificationManager(userID: "41NE0akxMrULczrGIlKyJbj9cTb2");
+        pushManager.registerForPushNotifications()
 
       return true
     }
@@ -106,8 +109,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
       didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
     ) {
         print("hello")
-        print(deviceToken);
       Messaging.messaging().apnsToken = deviceToken
+    }
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register with push")
     }
 }
 
@@ -116,6 +121,8 @@ extension AppDelegate: MessagingDelegate {
     _ messaging: Messaging,
     didReceiveRegistrationToken fcmToken: String?
   ) {
+      print("Device Token:", fcmToken)
+      print("end ")
     let tokenDict = ["token": fcmToken ?? ""]
     NotificationCenter.default.post(
       name: Notification.Name("FCMToken"),

@@ -64,11 +64,14 @@ struct ProfileView: View {
     @State private var userFristQ: String = ""
     @State private var userSecondQ: String = ""
     @State private var userThirdQ: String = ""
+    @State private var personalityText: String = ""
     @State private var showError: Bool = false
     @State var showingDetail = false
+    
+    
 
     
-    @State private var items: [Item] = [.init(name: "Favorite Songs", details: "Hot or Cold"), .init(name: "Providing Services", details: "iOS Development and Mobile Application Development")]
+  
     
     @State private var currentImageIndex: Int = 0
     
@@ -76,29 +79,85 @@ struct ProfileView: View {
         //beginning Vstack
         ScrollView{
         VStack {
-
-            ZStack(alignment: .bottom){
-                GeometryReader{ geometry in
+            Spacer().frame(height: 40)
+            
+            HStack{
+                
+                VStack(spacing: 0){
+                    
+//                    Rectangle()
+//                    .fill(Color("Color"))
+//                    .frame(width: 80, height: 3)
+//                    .zIndex(1)
+                    
+                    
+                    // going to apply shadows to look like neuromorphic feel...
+                    
                     Image(uiImage: image)
-                        .centerCropped()
-//                        .gesture(DragGesture(minimumDistance: 0).onEnded({ value in
-//                            if value.translation.equalTo(.zero){
-//                                if(value.location.x <= geometry.size.width/2){
-//                                    showPrevPicture()
-//                                } else { showNextPicture()}
-//                            }
-//                        }))
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 175, height: 175)
+                                        .cornerRadius(image.size.width/2)
+
+//                    .padding(.top, 6)
+//                    .padding(.bottom, 4)
+//                    .padding(.horizontal, 8)
+//                    .cornerRadius(10)
+//                    .background(Color("Color11"))
+//                    .shadow(color: Color.black.opacity(0.1), radius: 5, x: 8, y: 8)
+//                    .shadow(color: Color.white.opacity(0.5), radius: 5, x: -8, y: -8)
                 }
                 
+                VStack(alignment: .leading, spacing: 5){
+                    
+                    Text(userName)
+                        .font(.title)
+                    
+                    Text(userMB).bold()
+                        .padding(.top, 8)
+                    
+                    Text(userJob).bold()
+                }
+                .padding(.leading, 20)
                 
+                Spacer(minLength: 0)
             }
+            .padding(.horizontal, 20)
+            .padding(.top, 10)
             
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .aspectRatio(0.7, contentMode: .fit)
-            .background(.white)
-            .cornerRadius(10)
-            .shadow(radius: 10)
-            Spacer(minLength: 20)
+//            ZStack(alignment: .bottom){
+//                GeometryReader{ geometry in
+//                    Image(uiImage: image)
+//                        .centerCropped()
+////                        .gesture(DragGesture(minimumDistance: 0).onEnded({ value in
+////                            if value.translation.equalTo(.zero){
+////                                if(value.location.x <= geometry.size.width/2){
+////                                    showPrevPicture()
+////                                } else { showNextPicture()}
+////                            }
+////                        }))
+//                }
+//
+//
+//            }
+//
+//            .frame(maxWidth: .infinity, maxHeight: .infinity)
+//            .aspectRatio(0.7, contentMode: .fit)
+//            .background(.white)
+//            .cornerRadius(10)
+//            .shadow(radius: 10)
+//            Spacer(minLength: 20)
+            Spacer().frame(height: 40)
+            HStack{
+                Text(userBio)
+               
+            }
+            .padding(.horizontal,8)
+            .padding(.vertical,5)
+            .background(Color("Color1"))
+            .cornerRadius(8)
+            .padding(.horizontal)
+            .padding(.top,25)
             makeBottomView()
                 .padding(.horizontal)
         }}
@@ -108,14 +167,14 @@ struct ProfileView: View {
         VStack(alignment: .leading, spacing: 10) {
             
             VStack(alignment: .leading) {
-                Text(userName)
-                Text(userMB)
-                    .bold()
-                    .italic()
-                Text(userJob)
-                    .bold()
-                    .italic()
-                Text(userBio)
+//                Text(userName)
+//                Text(userMB)
+//                    .bold()
+//                    .italic()
+//                Text(userJob)
+//                    .bold()
+//                    .italic()
+//                Text(userBio)
                 Text("If you could compare yourself with any animal, which would it be and why? 🐶")
                     .bold()
                     .italic()

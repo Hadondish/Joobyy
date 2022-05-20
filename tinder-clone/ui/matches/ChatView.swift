@@ -54,7 +54,7 @@ struct ChatView: View {
         .toolbar{  Button(action: {
             self.showingDetail.toggle()
         }) {
-            Image(systemName:"person.circle")
+            Image(systemName:"info.circle").foregroundGradient(colors: AppColor.appColors)
         }.sheet(isPresented: $showingDetail) {
             ProfileView(UID: match.userId)
         }}

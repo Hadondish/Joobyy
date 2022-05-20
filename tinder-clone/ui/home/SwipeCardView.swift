@@ -9,6 +9,8 @@ import SwiftUI
 import Firebase
 
 struct SwipeCardView: View {
+    @Environment(\.colorScheme) var colorScheme
+
     let model: UserProfile
     @EnvironmentObject var firestoreViewModel: FirestoreViewModel
     
@@ -29,6 +31,7 @@ struct SwipeCardView: View {
     }
     
     var body: some View {
+        VStack{
         ZStack(alignment: .bottom){
             GeometryReader{ geometry in
                 Image(uiImage: model.pictures[currentImageIndex])
@@ -54,43 +57,79 @@ struct SwipeCardView: View {
                     .padding(.trailing)
                 }
                 Spacer()
-                VStack{
-                    HStack(alignment: .firstTextBaseline){
-                        Text(model.name).font(.largeTitle).fontWeight(.semibold)
-                        Text(String(firestoreViewModel.fetchMutuals(fetchedUserId: CurrentUserId, fetchedUserId2: model.userId))).font(.title).fontWeight(.medium)
-                        Text("Mutuals")
-                        Spacer()
-                        Button(action: {
-                                    self.showingDetail.toggle()
-                                }) {
-                                    Image(systemName: "person.circle").font(.system(size: 24, weight: .bold)).foregroundColor(.blue)
-                                }.sheet(isPresented: $showingDetail) {
-                                    ProfileView(UID: model.userId)
-                                };
-                        Spacer()
-                    }
-                    HStack(alignment: .firstTextBaseline){
-                        Text(userMB).bold()
-                        Spacer()
-
-                    }
-                    HStack(alignment: .firstTextBaseline){
-                        Text(userJob).bold()
-                        Spacer()
-
-                    }
-                    
-                   
-                }
-                .padding()
-                .foregroundColor(.primary)
+//                VStack{
+//                    HStack(alignment: .firstTextBaseline){
+//                        Text(model.name).font(.largeTitle).fontWeight(.semibold)
+//                        Text(String(firestoreViewModel.fetchMutuals(fetchedUserId: CurrentUserId, fetchedUserId2: model.userId))).font(.title).fontWeight(.medium)
+//                        Text("Mutuals")
+//                        Spacer()
+//                        Button(action: {
+//                                    self.showingDetail.toggle()
+//                                }) {
+//                                    Image(systemName: "person.circle").font(.system(size: 24, weight: .bold)).foregroundColor(.blue)
+//                                }.sheet(isPresented: $showingDetail) {
+//                                    ProfileView(UID: model.userId)
+//                                };
+//                        Spacer()
+//                    }
+//                    HStack(alignment: .firstTextBaseline){
+//                        Text(userMB).bold()
+//                        Spacer()
+//
+//                    }
+//                    HStack(alignment: .firstTextBaseline){
+//                        Text(userJob).bold()
+//                        Spacer()
+//
+//                    }
+//
+//
+//                }
+//                .padding()
+//                .foregroundColor(.primary)
             }
             .frame(maxWidth: .infinity)
+        }
+            HStack {
+                VStack{
+                                 HStack(alignment: .firstTextBaseline){
+                                     Text(model.name).font(.largeTitle).fontWeight(.semibold)
+                                     Text(String(firestoreViewModel.fetchMutuals(fetchedUserId: CurrentUserId, fetchedUserId2: model.userId))).font(.title).fontWeight(.medium)
+                                     Text("Mutuals")
+                                     Spacer()
+                                     
+                                     Spacer()
+                                 }
+                                 HStack(alignment: .firstTextBaseline){
+                                     Text(userMB).bold()
+                                     Spacer()
+             
+                                 }
+                                 HStack(alignment: .firstTextBaseline){
+                                     Text(userJob).bold()
+                                     Spacer()
+             
+                                 }
+             
+             
+                             }
+                
+                             .padding()
+                             .foregroundColor(.primary)
+                Button(action: {
+                            self.showingDetail.toggle()
+                        }) {
+                            Image(systemName: "info.circle").font(.system(size: 30, weight: .bold)).foregroundGradient(colors: AppColor.appColors)
+                        }.sheet(isPresented: $showingDetail) {
+                            ProfileView(UID: model.userId)
+                        };
+                          }.padding(.horizontal)
+            
         }
         
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .aspectRatio(0.7, contentMode: .fit)
-        .background(.white)
+        .background(colorScheme == .dark ? Color(UIColor.systemGray6) : .white)
         .cornerRadius(10)
         .shadow(radius: 10)
         .onAppear(perform: performOnAppear)

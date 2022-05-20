@@ -43,6 +43,8 @@ struct CreateProfileView: View {
     
     @State private var confirmRemoveImageIndex: Int = 0
     @State private var droppedOutside: Bool = false
+    var placeholder = "Select Myers-Briggs"
+    var dropDownList = ["ESTJ", "ENTJ", "ESFJ", "ENFJ", "ISTJ", "ISFJ", "INTJ", "INFJ", "ESTP", "ESFP", "ENTP", "ENFP", "ISTP", "ISFP", "INTP", "INFP"]
     
     @EnvironmentObject var firestoreViewModel: FirestoreViewModel
     @EnvironmentObject var authViewModel: AuthViewModel
@@ -86,9 +88,9 @@ struct CreateProfileView: View {
 //
 //                    }
                     //Myer Briggs
-                    ProfileRow {
-                        TextField("Enter Myers Briggs Personality Type", text: $myerType)
-                    }
+//                    ProfileRow {
+//                        TextField("Enter Myers Briggs Personality Type", text: $myerType)
+//                    }
                     //Hobbies
                     ProfileRow {
                         TextField("Favorite hobbies outside of work", text: $hobbies)
@@ -101,6 +103,29 @@ struct CreateProfileView: View {
                    
                 }
                 
+                Menu {
+                           ForEach(dropDownList, id: \.self){ client in
+                               Button(client) {
+                                   self.myerType = client
+                               }
+                           }
+                       } label: {
+                           VStack(spacing: 5){
+                               HStack{
+                                   Text(myerType.isEmpty ? placeholder : myerType)
+                                       .foregroundColor(myerType.isEmpty ? .gray : .black)
+                                   Spacer()
+                                   Image(systemName: "chevron.down")
+                                       .foregroundColor(Color(UIColor.lightGray))
+                                       .font(Font.system(size: 20, weight: .bold))
+                               }
+                               .padding(.horizontal)
+                               .foregroundColor(Color.white)
+                               Rectangle()
+                                   .fill(Color(UIColor.lightGray))
+                                   .frame(height: 2)
+                           }
+                       }
                 ProfileSection("about-you"){
                     ProfileRow{
                         TextField("", text: $userBio)
