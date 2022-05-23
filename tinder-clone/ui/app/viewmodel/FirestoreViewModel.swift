@@ -27,8 +27,15 @@ class FirestoreViewModel: NSObject, ObservableObject{
     }
     
     func sendMessage(matchId: String, message: String){
+        let sendeeID = matchId.components(separatedBy: userId!)
+        //Get sendeeID
+        print(sendeeID)
+        //Get sendeeID
+        let sendeeIDFinal = sendeeID[0].isEmpty ? sendeeID[1]: sendeeID[0]
+        let sendeeToken = fetchUserToken(fetchedUserId: sendeeIDFinal)
+        print(sendeeToken)
         let sender = PushNotificationSender()
-        sender.sendPushNotification(to: "c4bzOI6B40VajrAHhTSDY6:APA91bGMOt8OFvxY2W5UJKmyEB9_mIgR0pQ7-LaBbfJPCD07IbkPd4yqHVotdkAHi9crF50XmTE4edWZHTgbarc1aRLVeUKlYAy6QQ1ckVSy6j4ps6TrnXaG-hLXZV2vLlCbXQU89dP7", title: "Tester", body: "Sent you a message")
+        sender.sendPushNotification(to: sendeeToken, title: "Joobie", body: "Sent you a message")
         db.collection("matches").document(matchId).collection("messages")
             .addDocument(data:
                             ["message" : message,
@@ -394,6 +401,24 @@ class FirestoreViewModel: NSObject, ObservableObject{
 
             }
         }
+    }
+    
+    func fetchUserToken(fetchedUserId: String) -> String{
+        let docRef = db.collection("users").document(fetchedUserId ?? userId!)
+        var token: String = ""
+
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dummy = document.get("fcmToken") as! String
+                token = dummy
+                print(token)
+
+            } else {
+                print("Document does not exist")
+
+            }
+        }
+        return token
     }
     
     func fetchMutuals(fetchedUserId: String? = nil, fetchedUserId2: String? = nil) ->  Int{

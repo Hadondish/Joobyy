@@ -84,28 +84,12 @@ struct ProfileView: View {
             HStack{
                 
                 VStack(spacing: 0){
-                    
-//                    Rectangle()
-//                    .fill(Color("Color"))
-//                    .frame(width: 80, height: 3)
-//                    .zIndex(1)
-                    
-                    
-                    // going to apply shadows to look like neuromorphic feel...
-                    
                     Image(uiImage: image)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 175, height: 175)
                                         .cornerRadius(image.size.width/2)
 
-//                    .padding(.top, 6)
-//                    .padding(.bottom, 4)
-//                    .padding(.horizontal, 8)
-//                    .cornerRadius(10)
-//                    .background(Color("Color11"))
-//                    .shadow(color: Color.black.opacity(0.1), radius: 5, x: 8, y: 8)
-//                    .shadow(color: Color.white.opacity(0.5), radius: 5, x: -8, y: -8)
                 }
                 
                 VStack(alignment: .leading, spacing: 5){
@@ -125,28 +109,17 @@ struct ProfileView: View {
             .padding(.horizontal, 20)
             .padding(.top, 10)
             
-//            ZStack(alignment: .bottom){
-//                GeometryReader{ geometry in
-//                    Image(uiImage: image)
-//                        .centerCropped()
-////                        .gesture(DragGesture(minimumDistance: 0).onEnded({ value in
-////                            if value.translation.equalTo(.zero){
-////                                if(value.location.x <= geometry.size.width/2){
-////                                    showPrevPicture()
-////                                } else { showNextPicture()}
-////                            }
-////                        }))
-//                }
-//
-//
-//            }
-//
-//            .frame(maxWidth: .infinity, maxHeight: .infinity)
-//            .aspectRatio(0.7, contentMode: .fit)
-//            .background(.white)
-//            .cornerRadius(10)
-//            .shadow(radius: 10)
-//            Spacer(minLength: 20)
+            if (!portfolio.isEmpty){ Button(action: {
+                if let yourURL = URL(string: portfolio) {
+                    UIApplication.shared.open(yourURL, options: [:], completionHandler: nil)
+                }
+            }) {
+               Text("Check out my Portfolio!")
+            }} else {
+                Text("I am working on my portfolio!")
+
+            }
+           
             Spacer().frame(height: 40)
             HStack{
                 Text(userBio)
@@ -202,7 +175,7 @@ struct ProfileView: View {
                     .italic()
                 Text(userHobbies)
                     .italic()
-                Text(portfolio).bold().italic()
+//                Text(portfolio).bold().italic()
                 
 
                 // Set how links should appear: blue and underlined
@@ -311,7 +284,13 @@ struct ProfileView: View {
     
     private func populateData(_ user: FirestoreUser){
         userBio = user.bio
-        portfolio = user.portfolio
+        if (user.portfolio.contains("https://")){
+            portfolio = user.portfolio
+        }
+        else if(user.portfolio.isEmpty){}
+        else{
+            portfolio = "https://" + user.portfolio
+        }
         userName = user.name
         userBirthdate = user.birthDate.getFormattedDate(format: dateFormat)
         userJob = user.job
