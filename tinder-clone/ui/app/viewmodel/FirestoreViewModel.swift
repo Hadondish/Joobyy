@@ -18,6 +18,7 @@ enum DomainError: Error{
 }
 
 class FirestoreViewModel: NSObject, ObservableObject{
+    @Published var token: String = ""
     private let IMG_MAX_SIZE: Int64 = 10 * 1024 * 1024
     private let viewContext = PersistenceController.shared.container.viewContext
     private let db = Firestore.firestore()
@@ -30,17 +31,29 @@ class FirestoreViewModel: NSObject, ObservableObject{
         let sendeeID = matchId.components(separatedBy: userId!)
         //Get sendeeID
         print(sendeeID)
+        var sendeeToken: String = ""
         //Get sendeeID
         let sendeeIDFinal = sendeeID[0].isEmpty ? sendeeID[1]: sendeeID[0]
-        let sendeeToken = fetchUserToken(fetchedUserId: sendeeIDFinal)
-        print(sendeeToken)
-        let sender = PushNotificationSender()
-        sender.sendPushNotification(to: sendeeToken, title: "Joobie", body: "Sent you a message")
-        db.collection("matches").document(matchId).collection("messages")
-            .addDocument(data:
-                            ["message" : message,
-                             "senderId" : userId!,
-                             "timestamp" : FieldValue.serverTimestamp()])
+       
+        fetchUserToken1(fetchedUserId: sendeeIDFinal, completion:  {
+            strings, error in if let strings = strings{
+                print("Maybe")
+                print(strings)
+                self.token = strings
+                
+                print("Sendee Token: ")
+                print(self.token)
+                print("end")
+                let sender = PushNotificationSender()
+                sender.sendPushNotification(token: self.token, title: "Joobie", body: "Sent you a message")
+                self.db.collection("matches").document(matchId).collection("messages")
+                    .addDocument(data:
+                                    ["message" : message,
+                                     "senderId" : self.userId!,
+                                     "timestamp" : FieldValue.serverTimestamp()])
+            }
+            })
+        
     }
     
     func listenToMessages(matchId: String, onUpdate: @escaping (Result<[MessageModel], DomainError>) -> ()) -> ListenerRegistration{
@@ -402,6 +415,22 @@ class FirestoreViewModel: NSObject, ObservableObject{
             }
         }
     }
+    func fetchUserToken1(fetchedUserId: String? = nil, completion: @escaping (String?, Error?)-> Void){
+        let docRef = db.collection("users").document(fetchedUserId ?? userId!)
+        var matches: String = ""
+
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dummy = document.get("fcmToken") as! String
+                matches = dummy
+                completion(matches, nil)
+
+            } else {
+                print("Document does not exist")
+
+            }
+        }
+    }
     
     func fetchUserToken(fetchedUserId: String) -> String{
         let docRef = db.collection("users").document(fetchedUserId ?? userId!)
@@ -409,16 +438,19 @@ class FirestoreViewModel: NSObject, ObservableObject{
 
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                let dummy = document.get("fcmToken") as! String
-                token = dummy
-                print(token)
-
+                    let dummy = document.get("fcmToken") as! String
+                    token = dummy
+               
+              
             } else {
                 print("Document does not exist")
 
             }
+           
         }
+        print("FCM token: " + token)
         return token
+        
     }
     
     func fetchMutuals(fetchedUserId: String? = nil, fetchedUserId2: String? = nil) ->  Int{

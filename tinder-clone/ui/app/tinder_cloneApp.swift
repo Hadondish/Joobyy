@@ -32,9 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-      FirebaseApp.configure()
+        FirebaseApp.configure()
     
-    FirebaseConfiguration.shared.setLoggerLevel(.min)
+        FirebaseConfiguration.shared.setLoggerLevel(.min)
+        var userId: String? {
+            Auth.auth().currentUser?.uid
+        }
 
         // 1
         UNUserNotificationCenter.current().delegate = self
@@ -46,6 +49,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         Messaging.messaging().delegate = self
         //permission for user
+        
+        let pushManager = PushNotificationManager(userID: userId ?? "");
+        pushManager.registerForPushNotifications()
+        
              let center = UNUserNotificationCenter.current()
              
              center.requestAuthorization(options: [.alert, .sound])
@@ -77,8 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
              center.add(request) { (error) in
                  //error checker
              }
-        let pushManager = PushNotificationManager(userID: "41NE0akxMrULczrGIlKyJbj9cTb2");
-        pushManager.registerForPushNotifications()
+      
 
       return true
     }
