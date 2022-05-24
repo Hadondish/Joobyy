@@ -31,10 +31,9 @@ class FirestoreViewModel: NSObject, ObservableObject{
         let sendeeID = matchId.components(separatedBy: userId!)
         //Get sendeeID
         print(sendeeID)
-        var sendeeToken: String = ""
         //Get sendeeID
         let sendeeIDFinal = sendeeID[0].isEmpty ? sendeeID[1]: sendeeID[0]
-       
+       //put the functions into the oncompletion statements
         fetchUserToken1(fetchedUserId: sendeeIDFinal, completion:  {
             strings, error in if let strings = strings{
                 print("Maybe")
@@ -460,9 +459,7 @@ class FirestoreViewModel: NSObject, ObservableObject{
         var matches2: [String] = []
         fetchUserMatches(fetchedUserId: usedId1, completion: {
             strings, error in if let strings = strings{
-                print(strings)
                 matches1.append(contentsOf: strings)
-                print(matches2)
 
             }
             }
@@ -471,9 +468,7 @@ class FirestoreViewModel: NSObject, ObservableObject{
         fetchUserMatches(fetchedUserId: usedId2, completion:
                             {
                                 strings, error in if let strings = strings{
-                                    print(strings)
                                     matches2.append(contentsOf: strings)
-                                    print(matches2)
                                 }
                                 })
         

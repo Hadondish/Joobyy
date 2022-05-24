@@ -35,9 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
     
         FirebaseConfiguration.shared.setLoggerLevel(.min)
-        var userId: String? {
-            Auth.auth().currentUser?.uid
-        }
+      
 
         // 1
         UNUserNotificationCenter.current().delegate = self
@@ -49,9 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         Messaging.messaging().delegate = self
         //permission for user
-        
-        let pushManager = PushNotificationManager(userID: userId ?? "");
-        pushManager.registerForPushNotifications()
+
         
              let center = UNUserNotificationCenter.current()
              
@@ -90,6 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+                
       return GIDSignIn.sharedInstance.handle(url)
     }
 }

@@ -93,13 +93,19 @@ struct SwipeCardView: View {
             HStack {
                 VStack{
                                  HStack(alignment: .firstTextBaseline){
-                                     Text(model.name).font(.largeTitle).fontWeight(.semibold)
-                                     Text(String(firestoreViewModel.fetchMutuals(fetchedUserId: CurrentUserId, fetchedUserId2: model.userId))).font(.title).fontWeight(.medium)
-                                     Text("Mutuals")
+                                     Text(model.name).font(.largeTitle).fontWeight(.semibold).padding(1)
+                                     
                                      Spacer()
                                      
                                      Spacer()
                                  }
+                    HStack(alignment: .firstTextBaseline){
+                        Text(String(firestoreViewModel.fetchMutuals(fetchedUserId: CurrentUserId, fetchedUserId2: model.userId))).font(.title).fontWeight(.medium)
+                        Text("Mutuals")
+                        Spacer()
+
+                    }
+                    
                                  HStack(alignment: .firstTextBaseline){
                                      Text(userMB).bold()
                                      Spacer()

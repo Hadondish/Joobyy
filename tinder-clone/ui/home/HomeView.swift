@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct HomeView: View {
     @EnvironmentObject var firestoreViewModel: FirestoreViewModel
@@ -17,6 +18,7 @@ struct HomeView: View {
     @State private var matchID = ""
 
     @State private var matchImage: UIImage = UIImage()
+   
 
     var body: some View {
         ZStack{
@@ -75,6 +77,11 @@ struct HomeView: View {
     }
     
     private func performOnAppear(){
+        var userId: String? {
+            Auth.auth().currentUser?.uid
+        }
+        let pushManager = PushNotificationManager(userID: userId ?? "");
+        pushManager.registerForPushNotifications()
         swipeViewLoading = true
         firestoreViewModel.fetchProfiles(onCompletion: {result in
             swipeViewLoading = false
